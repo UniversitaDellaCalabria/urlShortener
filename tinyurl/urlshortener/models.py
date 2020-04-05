@@ -10,7 +10,7 @@ class UrlShortener(models.Model):
     user_id = models.ForeignKey(get_user_model(),
                                 on_delete=models.SET_NULL,
                                 blank=True, null=True)
-    original_url = models.TextField()
+    original_url = models.URLField()
     shorten_url = models.CharField(max_length=50)
     created = models.DateTimeField(auto_now_add=True)
 

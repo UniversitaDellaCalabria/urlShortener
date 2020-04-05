@@ -135,15 +135,14 @@
 					<h1 class="header-title border-bottom">GARR {{ project_name|default_if_none:"tinyUrl" }}</h1>
 				</div>
 
+            <!--INIZIO CONTENUTO-->
 			<div class="col-lg-12 pt-3 pb-5" style="min-height: 400px; text-align:center">
-				<!--INIZIO CONTENUTO-->
-
-		<div class="content text-left">
-				
-		</div>
-	</div>
-	
+                <div class="content text-left">
+                        {% block page_body %} {% endblock page_body %}
+                </div>
+            </div>
 			<!--FINE CONTENUTO-->
+            
 			</div>
 
 		<div class="container p-4 footer rounded-bottom text-left">
