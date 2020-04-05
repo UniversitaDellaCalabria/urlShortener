@@ -1,0 +1,250 @@
+{% load i18n %}
+{% load static %}
+
+<!DOCTYPE html>
+<html class="uk-notouch"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta name="description" content="GARR {{ project_name|default_if_none:"tinyUrl" }}">
+			<meta name="author" content="Consortium GARR">
+
+			<title>GARR {{ project_name|default_if_none:"tinyUrl" }}</title>
+
+			<link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}">
+			<link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+			<link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+			<link rel="mask-icon" href="{% static 'img/safari-pinned-tab.svg' %}">
+			<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+			<meta name="msapplication-TileColor" content="#da532c">
+			<meta name="theme-color" content="#ffffff">
+
+			<link href="{% static 'css/bootstrap4.css' %}" rel="stylesheet">
+
+			<script src="{% static 'js/jquery.js' %}"></script>
+			<script src="{% static 'js/popper.js' %}"></script>
+			<script src="{% static 'js/bootstrap.js' %}"></script>
+			<script src="{% static 'js/jquery-ui.js' %}"></script>
+
+			<link rel="stylesheet" href="{% static 'css/uikit.css' %}">
+			<script src="{% static 'js/uikit.js' %}"></script>
+
+            <script>
+                var coll = document.getElementsByClassName("collapsible");
+                var i;
+                
+                for (i = 0; i < coll.length; i++) {
+                  coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                      content.style.display = "none";
+                    } else {
+                      content.style.display = "block";
+                    }
+                  });
+                }
+            </script>
+
+			<link href="{% static 'css/style.css' %}" rel="stylesheet">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/css_002.css' %}">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/css_003.css' %}">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+			<link rel="stylesheet" href="{% static 'css/all.css' %}">
+
+            {% block extra_head %}{% endblock %}
+            
+	</head>
+
+    <body onload="initServers()"><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-floating cc-type-info cc-theme-block cc-bottom cc-right cc-color-override-1894439573  cc-invisible" style="display: none;">
+        <!--googleoff: all-->
+        <span id="cookieconsent:desc" class="cc-message">
+
+        {% trans "Questo sito utilizza i cookie per migliorare il servizio e l'esperienza utente. Se decidi di continuare la navigazione consideriamo che accetti il loro uso" %}
+        
+        <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="https://servizi.garr.it/cookies" rel="noopener noreferrer nofollow" target="_blank">
+                {% trans "Info" %}
+        </a>
+        </span>
+        <div class="cc-compliance">
+            <a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">
+                {% trans "ACCETTO" %}
+            </a>
+        </div>
+        <!--googleon: all-->
+    </div>
+	<div class="wrap">
+		<div class="container pb-3 pt-3 pr-0">
+			<div class="row ">
+				<div class="col-md-12 ">
+					<ul class="nav general-top-menu-ul float-right">
+						<li class="nav-item">
+							<a class="nav-link" href="/">Home</a>
+						</li>
+						<li class="separator">|</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://www.garr.it/">GARR</a>
+						</li>
+						<li class="separator">|</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://servizi.garr.it/cookies">Cookies</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container main-container shadow">
+			<div class="row rounded-top nav-row shadow ">
+				<div class="col-lg-12 p-0">
+					<nav class="navbar navbar-expand-xl navbar-dark p-0 ">
+						<div class="d-none d-lg-block bg-white p-2" style=" border-top-left-radius: .25rem !important;">
+							<a class="navbar-brand p-3" href="/">
+                                <img class="" src="{% static 'img/logo-servizi-medio.png' %}" alt="" style="height: 60px;width: auto;">
+                            </a>
+						</div>
+						<div class="d-lg-none p-2">
+							<a class="navbar-brand ml-4" href="/">
+                                <img class="" src="{% static 'img/logo-servizi-medio.png' %}" alt="" style="height: 60px;width: auto; ">
+                            </a>
+						</div>
+						<button class="navbar-toggler m-4" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse main-menu float-left" id="navbarCollapse">
+							<ul class="navbar-nav mr-auto ">
+								<!--<li class="nav-item">
+									<a class="nav-link cool-link" href="#">About</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link cool-link" href="#">FAQ</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link cool-link" href="#">Documentazione</a>
+								</li>-->
+
+							</ul>
+							<ul class="navbar-nav mt-0 mr-3">
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+
+				<div class="col-md-12 mt-5 text-left">
+					<h1 class="header-title border-bottom">GARR {{ project_name|default_if_none:"tinyUrl" }}</h1>
+				</div>
+
+			<div class="col-lg-12 pt-3 pb-5" style="min-height: 400px; text-align:center">
+				<!--INIZIO CONTENUTO-->
+
+		<div class="content text-left">
+				
+		</div>
+	</div>
+	
+			<!--FINE CONTENUTO-->
+			</div>
+
+		<div class="container p-4 footer rounded-bottom text-left">
+			<div class="col-md-12">
+				<div class="row">
+                    {% block footer %}
+					<div class="col-md-3">
+						<address>
+							<p><img alt="logo_garr_bianco" src="{% static 'img/logo_garr_bianco_piccolo.png' %}"></p>
+							<strong>Consortium GARR</strong><br> Via dei Tizii, 6 - 00185 Roma<br> Tel. 0649622000 - Fax 0649622044<br>
+						</address>
+						<a style="margin-left: 0" href="https://twitter.com/ReteGARR" class="social-icon uk-icon-hover uk-icon-small uk-icon-twitter" target="_blank"></a>
+						<a href="http://www.youtube.com/garrtv" class="social-icon uk-icon-hover uk-icon-small uk-icon-youtube" target="_blank"></a>
+						<a href="https://it-it.facebook.com/ReteGARR" class="social-icon uk-icon-hover uk-icon-small uk-icon-facebook" target="_blank"></a>
+					</div>
+					<!--<div class="col-md-3">
+						<h3 class="footer-header text-left">PRIVACY</h3>
+						<ul class="footer-list">
+							<li><a href="#">Privacy e trattamento dei dati</a></li>
+							<li><a href="https://idem.garr.it/">Federazione di identità IDEM</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h3 class="footer-header text-left">DOCUMENTAZIONE</h3>
+						<ul class="footer-list">
+							<li><a href="#">Link</a></li>
+						</ul>
+					</div>-->
+
+				</div>
+				<div class="row">
+					<div class="col-md-1 pt-5">
+						<!--a href="#" title="Accedi con login locale"><i class="fas fa-user-lock"></i></a-->
+					</div>
+					<div class="col-md-11 text-center cc-paragraph">
+						<p><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/it/">
+								<img alt="cc_logo" src="{% static 'img/creative_commons_88x31.png' %}">
+								Eccetto dove diversamente specificato, i contenuti di questo 
+sito sono rilasciati sotto Licenza Creative Commons Attribuzione 3.0 
+Italia</a>.
+						</p>
+					</div>
+				</div>
+			{% endblock footer %}
+			</div>
+		</div>
+	</div>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/cookieconsent.css' %}">
+		<script src="{% static 'js/cookieconsent.js' %}"></script>
+		<script>
+            window.addEventListener("load", function(){
+                window.cookieconsent.initialise({
+                    "palette": {
+                        "popup": {
+                            "background": "#224374"
+                        },
+                        "button": {
+                            "background": "#f1d600"
+                        }
+                    },
+                    "position": "bottom-right",
+                    "content": {
+                        "message": "Questo sito utilizza i cookie per migliorare il servizio e l'esperienza utente. Se decidi di continuare la navigazione consideriamo che accetti il loro uso",
+                        "dismiss": "ACCETTO",
+                        "link": "Info",
+                        "href": "https://servizi.garr.it/cookies"
+                    }
+                })});
+		</script>
+	<div id="privacyPolicy" style="display:none">
+	    <h2>Privacy Policy</h2>
+	    <h4>Quali dati raccogliamo</h4>
+	    <p>
+		Alla fine del test, vengono raccolti e memorizzati i seguenti dati:
+	        </p><ul>
+	            <li>User agent e lingua browser</li>
+	            <li>Test log (non contiene informazioni personali)</li>
+	        </ul>
+	    <p></p>
+	    <h4>Come utilizziamo i dati</h4>
+	    <p>
+	        I dati raccolti tramite questo servizio vengono utilizzati per:
+	        </p><ul>
+	            <li>Permettere la condivisione dei risultati del test (immagine condivisibile per forum, ecc...)</li>
+	            <li>Per migliorare il servizio offerto (ad esempio per rilevare problemi dalla nostra parte)</li>
+	        </ul>
+		Nessuna informazione personale viene divulgata a terzi.
+	    <p></p>
+	    <h4>Rimozione dei dati</h4>
+	    <p>
+	        Se desideri che le tue informazioni vengano cancellate, devi 
+fornire l'ID del test o il tuo indirizzo IP. Questo è l'unico modo per 
+identificare i tuoi dati, senza queste informazioni non saremo in grado 
+di soddisfare la tua richiesta.<br><br>
+	        Contatta questo indirizzo email per tutte le richieste di cancellazione: <a href="mailto:info@garr.it">speedtest-support@garr.it</a>.
+	    </p>
+	    <br><br>
+	    <a class="privacy" href="#" onclick="I('privacyPolicy').style.display='none'">Close</a><br>
+	</div>
+    
+
+</div>
+</body>
+</html>
