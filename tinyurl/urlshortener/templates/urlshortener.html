@@ -18,7 +18,7 @@
       console.log("Copied the text: " + copyText.value);
       /* make message visible*/
       var tooltip = document.getElementById("myTooltip");
-      tooltip.innerHTML = "<b>" + copyText.value + "</b> {%trans 'Copiato nei tuoi appunti.' %}";
+      tooltip.innerHTML = "<b>" + copyText.value + "</b> {%trans ' è stato copiato nei tuoi appunti.' %}";
       tooltip.style.visibility = 'visible';
     }
 
@@ -64,7 +64,7 @@
           
           <div>
               <button class="btn btn-primary btn-lg" onclick="copyToClipboard()">
-                  {% trans "Copia questo URL nei tuoi appunti" %}
+                  {% trans "Copia questo URL" %}
               </button>
           </div>
         </div>

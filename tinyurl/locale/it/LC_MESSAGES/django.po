@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-05 17:47+0000\n"
+"POT-Creation-Date: 2020-04-05 23:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,7 +52,15 @@ msgstr "Non raccogliamo alcun dato sui nostri utenti."
 msgid "Chiudi"
 msgstr "Chiudi"
 
-#: urlshortener/forms.py:23
+#: tinyurl/settingslocal.py:57
+msgid "Italian"
+msgstr ""
+
+#: tinyurl/settingslocal.py:58
+msgid "English"
+msgstr ""
+
+#: urlshortener/forms.py:24
 msgid "Il valore CaPTCHA è errato !"
 msgstr "Il valore CaPTCHA è errato !"
 
@@ -65,42 +73,42 @@ msgid "Shorten Urls"
 msgstr "Shorten Urls"
 
 #: urlshortener/templates/urlshortener.html:21
-msgid "Copiato nei tuoi appunti."
-msgstr "Copiato nei tuoi appunti."
+msgid " è stato copiato nei tuoi appunti."
+msgstr " è stato copiato nei tuoi appunti."
 
-#: urlshortener/templates/urlshortener.html:51
+#: urlshortener/templates/urlshortener.html:56
 msgid "Questo è il tuo URL abbreviato."
 msgstr "Questo è il tuo URL abbreviato."
 
-#: urlshortener/templates/urlshortener.html:52
+#: urlshortener/templates/urlshortener.html:57
 msgid "Sarà reso disponibile per i prossimi "
 msgstr "Sarà reso disponibile per i prossimi "
 
-#: urlshortener/templates/urlshortener.html:54
+#: urlshortener/templates/urlshortener.html:59
 msgid " giorni a partire da adesso."
 msgstr " giorni a partire da adesso."
 
-#: urlshortener/templates/urlshortener.html:62
-msgid "Copia questo URL nei tuoi appunti"
-msgstr "Copia questo URL nei tuoi appunti"
+#: urlshortener/templates/urlshortener.html:67
+msgid "Copia questo URL"
+msgstr "Copia questo URL"
 
-#: urlshortener/templates/urlshortener.html:68
+#: urlshortener/templates/urlshortener.html:73
 msgid "Questo servizio consente di conservare per un periodo massimo di "
 msgstr "Questo servizio consente di conservare per un periodo massimo di "
 
-#: urlshortener/templates/urlshortener.html:70
+#: urlshortener/templates/urlshortener.html:75
 msgid "giorni un url in formato \"ristretto\"."
 msgstr "giorni un url in formato \"ristretto\"."
 
-#: urlshortener/templates/urlshortener.html:73
+#: urlshortener/templates/urlshortener.html:78
 msgid "Sarà più facile condividerlo con amici e colleghi."
 msgstr "Sarà più facile condividerlo con amici e colleghi."
 
-#: urlshortener/templates/urlshortener.html:81
+#: urlshortener/templates/urlshortener.html:86
 msgid "Inserisci il valore rappresentato nella immagine CaPTCHA."
 msgstr "Inserisci il valore rappresentato nella immagine CaPTCHA."
 
-#: urlshortener/templates/urlshortener.html:84
+#: urlshortener/templates/urlshortener.html:89
 msgid "Crea un URL semplificato"
 msgstr "Crea un URL semplificato"
 

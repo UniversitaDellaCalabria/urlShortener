@@ -6,7 +6,8 @@ from . enc import decrypt
 
 class UrlShortenerForm(forms.Form):
     url = forms.URLField(widget=forms.URLInput(attrs={'class': 'form-control'}))
-    captcha = forms.CharField(max_length=2048)
+    captcha = forms.CharField(max_length=2048,
+                              widget=forms.TextInput(attrs={'autocomplete':"off"}))
     captcha_hidden = forms.CharField(widget=forms.HiddenInput())
 
     def clean(self, *args, **kwargs):
