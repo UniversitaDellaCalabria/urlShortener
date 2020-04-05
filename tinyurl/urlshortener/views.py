@@ -2,7 +2,8 @@ import short_url
 
 from django.conf import settings
 from django.contrib import messages
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext as _
 
 from . forms import UrlShortenerForm
@@ -37,3 +38,14 @@ def urlshortener(request):
         urlsh = urlsh
     )
     return render(request, 'urlshortener.html', context)
+
+
+def get_shorturl(request, shorturl):
+    ursh = get_object_or_404(UrlShortener, shorten_url=shorturl)
+    if ursh.is_expired():
+        messages.add_message(request, messages.ERROR,
+                                 _('The URL you have inserted is Expired.'))
+    return HttpResponseRedirect(ursh.original_url)
+    
+    
+    

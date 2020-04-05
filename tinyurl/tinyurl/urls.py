@@ -19,7 +19,8 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('that_admin/', admin.site.urls),
+    path('{}/'.format(getattr(settings, 'ADMIN_PATH', 'admin')),
+         admin.site.urls),
 ]
 
 if 'urlshortener' in settings.INSTALLED_APPS:
