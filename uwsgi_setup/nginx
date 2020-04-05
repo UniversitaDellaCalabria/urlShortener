@@ -1,0 +1,33 @@
+# the upstream component nginx needs to connect to
+upstream tinyurl {
+    server 127.0.0.1:3000;
+}
+
+# configuration of the server
+server {
+    # the port your site will be served on
+    listen      80;
+    # the domain name it will serve for
+    server_name url.garrlab.it;
+    
+    access_log /var/log/nginx/tinyurl.access.log;
+    error_log  /var/log/nginx/tinyurl.error.log error;
+
+    # Django static
+    location /static  {
+        alias /opt/tinyurl/tinyurl/static;  # your Django project's media files - amend as required
+        autoindex off;
+    }
+
+    # Finally, send all non-media requests to the Django server.
+    location / {
+        uwsgi_pass  tinyurl;
+        uwsgi_param HTTP_X_FORWARDED_PROTOCOL https;
+        
+        # deny iFrame
+        add_header X-Frame-Options "DENY";
+        
+        uwsgi_read_timeout 33;
+        include     /opt/tinyurl/tinyurl/uwsgi_setup/uwsgi_params;
+    }
+}
