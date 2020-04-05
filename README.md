@@ -20,8 +20,13 @@ first run
 
 ````
 cd tinyurl
+
+# copy adn edit private/production paramenters
+cp tinyurl/settingslocal.py.example tinyurl/settingslocal.py
+
 ./manage migrate
 ./manage createsuperuser admin
+./manage collectstatic
 ````
 
 run

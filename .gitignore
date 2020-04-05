@@ -1,3 +1,5 @@
 env/
 tinyurl/db.sqlite3
 *__pycache__*
+tinyurl/tinyurl/settingslocal.py
+static/
