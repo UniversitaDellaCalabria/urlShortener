@@ -58,12 +58,12 @@
         </div>
     {% else %}
         <p>
-            {% trans 'Questo servizio ti consente di conservare per un periodo massimo di giorni ' %}
+            {% trans 'Questo servizio consente di conservare per un periodo massimo di ' %}
                 {{ delta_days }}
-            {% trans 'un url in formato "ristretto".' %}
+            {% trans 'giorni un url in formato "ristretto".' %}
         </p>
         <p>
-            {% trans 'Sarà più facile da condividere con amici e colleghi.' %}
+            {% trans 'Sarà più facile condividerlo con amici e colleghi.' %}
         </p>
         <form method='POST'>
             {% csrf_token %}
