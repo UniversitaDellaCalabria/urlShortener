@@ -3,6 +3,28 @@
 {% load i18n %}
 {% load static %}
 
+{% block extra_head %}
+<script >
+    function copyToClipboard() {
+      var copyText = document.getElementById("shortened_url");
+    
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+    
+      /* Copy the text inside the text field */
+      document.execCommand("copy");
+    
+      console.log("Copied the text: " + copyText.value);
+      /* make message visible*/
+      var tooltip = document.getElementById("myTooltip");
+      tooltip.innerHTML = "<b>" + copyText.value + "</b> Copied to Clipboard.";
+      tooltip.style.visibility = 'visible';
+    }
+
+</script>
+{% endblock extra_head %}
+
 {% block page_body %}
     {% if messages %}
         {% for message in messages %}
@@ -14,10 +36,25 @@
 
     {% if urlsh %}
         <div class="jumbotron">
-          <h2 class="display-4">{{ request.build_absolute_uri }}{{ urlsh.shorten_url }}</h2>
-          <p class="lead">{% trans 'This is your shortened URL.' %}</p>
+          <h2 class="display-4">
+              <input type="text" style="border:none; background: none;"
+              value="{{ request.build_absolute_uri }}{{ urlsh.shorten_url }}" id="shortened_url">
+          </h2>
+          <p class="lead">
+              {% trans 'This is your shortened URL.' %}
+              {% trans 'It will be available for ' %}
+                <span style="font-width: 400;">{{ delta_days }}</span>
+              {% trans 'days from now.' %}
+          </p>
           <hr class="my-4">
-          <a class="btn btn-primary btn-lg" href="#" role="button">{% trans 'Click here to copy it to clipboard' %}</a>
+
+          <p id="myTooltip"></p>
+          
+          <div>
+              <button class="btn btn-primary btn-lg" onclick="copyToClipboard()">
+                  {% trans "Copy your Shortened URL" %}
+              </button>
+          </div>
         </div>
     {% else %}
         <p>
