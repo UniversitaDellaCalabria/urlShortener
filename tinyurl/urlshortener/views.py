@@ -24,12 +24,14 @@ def urlshortener(request):
             messages.add_message(request, messages.ERROR,
                                  _('The URL you have inserted is not valid.'))
         else:
-            entry = dict(original_url=form.cleaned_data['url'],
-                         user_id=request.user if request.user.is_authenticated else None)
-            
-            urlsh = UrlShortener.objects.create(**entry)
-            urlsh.shorten_url = short_url.encode_url(urlsh.pk)
-            urlsh.save()
+            # recyple already forged tinyurls
+            urlsh = UrlShortener.objects.filter(original_url=form.cleaned_data['url']).first()
+            if not urlsh:
+                entry = dict(original_url=form.cleaned_data['url'],
+                             user_id=request.user if request.user.is_authenticated else None)
+                urlsh = UrlShortener.objects.create(**entry)
+                urlsh.shorten_url = short_url.encode_url(urlsh.pk)
+                urlsh.save()
     
     context = dict(
         project_name='Url Shortener',

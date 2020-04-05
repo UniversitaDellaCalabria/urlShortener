@@ -36,11 +36,11 @@
 
     {% if urlsh %}
         <div class="jumbotron">
-          <h2 class="display-4">
+          <h3>
               <input type="text" style="border:none; background: none;"
               value="{{ request.build_absolute_uri }}{{ urlsh.shorten_url }}" id="shortened_url">
-          </h2>
-          <p class="lead">
+          </h3>
+          <p class="lead text-secondary">
               {% trans 'This is your shortened URL.' %}
               {% trans 'It will be available for ' %}
                 <span style="font-width: 400;">{{ delta_days }}</span>

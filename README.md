@@ -1,7 +1,7 @@
 tinyurl
 -------
 
-A Django URL Shortener
+A Django URL Shortener.
 
 
 setup
@@ -37,3 +37,12 @@ It will listen on :8000
 ./manage.py runserver
 ````
 
+author
+------
+
+Giuseppe De Marco <giuseppe.demarco@unical.it>
+
+credits
+-------
+
+GarrLab community
