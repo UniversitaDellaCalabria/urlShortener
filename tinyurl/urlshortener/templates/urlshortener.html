@@ -78,7 +78,7 @@
             <br>
             <img class="captcha_img"
                  src="data:image/png;base64,{{ captcha_img }}" />
-            <p>{% trans "Insert the value represented in the CaPTCHA image" %}</p>
+            <p class="text-secondary">{% trans "Insert the value represented in the CaPTCHA image" %}</p>
             {{ form.captcha }}
             {{ form.captcha_hidden }}
             <button class="btn-primary p-2 ml-2" type='submit'>{% trans 'Get a Shorten URL' %}</button>
