@@ -17,6 +17,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# for production
+#ALLOWED_HOSTS = ['url.garrlab.it']
+#FQDN = 'https://url.garrlab.it'
+
 # Application definition
 
 INSTALLED_APPS = [

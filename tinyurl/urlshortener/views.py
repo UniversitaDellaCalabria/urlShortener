@@ -57,8 +57,8 @@ def urlshortener(request):
         form = form,
         delta_days = DELTA_DAYS,
         urlsh = urlsh,
-        captcha_img = captcha_img
-        
+        captcha_img = captcha_img,
+        fqdn = getattr(settings, 'FQDN', request.build_absolute_uri())
     )
     return render(request, 'urlshortener.html', context)
 
