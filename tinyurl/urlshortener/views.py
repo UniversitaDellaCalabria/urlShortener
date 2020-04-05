@@ -1,3 +1,4 @@
+import copy
 import short_url
 
 from django.conf import settings
@@ -6,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext as _
 
+from . captcha import get_captcha
 from . forms import UrlShortenerForm
 from . models import UrlShortener, DELTA_DAYS
 
@@ -25,17 +27,21 @@ def urlshortener(request):
     #messages.add_message(request, messages.ERROR,
                                  #_('The URL you have inserted is not valid.'))
     urlsh = None
-    if request.method == 'GET':
-        form = UrlShortenerForm()
+    captcha, captcha_img, captcha_hidden = get_captcha()
+    initial={'captcha_hidden': captcha_hidden}
 
+    if request.method == 'GET':
+        form = UrlShortenerForm(initial=initial)
     elif request.method == 'POST':
         # clean oldies
         _clean_expired_urls()
-        
-        form = UrlShortenerForm(request.POST)
+        form = UrlShortenerForm(data=request.POST)
         if not form.is_valid():
             messages.add_message(request, messages.ERROR,
-                                 _('The URL you have inserted is not valid.'))
+                                 _('The URL or the CaPTCHA you have inserted is not valid.'))
+            data = copy.deepcopy(request.POST)
+            initial['url'] = form.cleaned_data['url']
+            form = UrlShortenerForm(initial=initial)
         else:
             # recyple already forged tinyurls
             urlsh = UrlShortener.objects.filter(original_url=form.cleaned_data['url']).first()
@@ -50,7 +56,9 @@ def urlshortener(request):
         project_name='Url Shortener',
         form = form,
         delta_days = DELTA_DAYS,
-        urlsh = urlsh
+        urlsh = urlsh,
+        captcha_img = captcha_img
+        
     )
     return render(request, 'urlshortener.html', context)
 

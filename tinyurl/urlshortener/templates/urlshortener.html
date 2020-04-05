@@ -23,6 +23,13 @@
     }
 
 </script>
+<style>
+
+    #id_captcha {
+            padding: 5px;
+        }
+
+</style>
 {% endblock extra_head %}
 
 {% block page_body %}
@@ -68,9 +75,13 @@
         <form method='POST'>
             {% csrf_token %}
             {{ form.url }}
-    
             <br>
-            <button class="btn-primary p-2" type='submit'>{% trans 'Get a Shorten URL' %}</button>
+            <img class="captcha_img"
+                 src="data:image/png;base64,{{ captcha_img }}" />
+            <p>{% trans "Insert the value represented in the CaPTCHA image" %}</p>
+            {{ form.captcha }}
+            {{ form.captcha_hidden }}
+            <button class="btn-primary p-2 ml-2" type='submit'>{% trans 'Get a Shorten URL' %}</button>
         </form>
     {% endif %}
     
