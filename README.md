@@ -37,6 +37,15 @@ It will listen on :8000
 ./manage.py runserver
 ````
 
+gallery
+-------
+
+![Alt text](gallery/1.png)
+--------------
+![Alt text](gallery/2.png)
+--------------
+![Alt text](gallery/3.png)
+
 author
 ------
 
