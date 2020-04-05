@@ -53,7 +53,7 @@ TINYURL_DURATION_DAYS = 12
 ADMIN_PATH = 'gestione'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'it-it'
 TIME_ZONE = 'UTC'
 
 LANGUAGES = [

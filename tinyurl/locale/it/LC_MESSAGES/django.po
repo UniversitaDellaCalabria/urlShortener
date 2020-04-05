@@ -24,87 +24,90 @@ msgid ""
 "utente. Se decidi di continuare la navigazione consideriamo che accetti il "
 "loro uso"
 msgstr ""
+"Questo sito utilizza i cookie per migliorare il servizio e l'esperienza "
+"utente. Se decidi di continuare la navigazione consideriamo che accetti il "
+"loro uso"
 
 #: garrlab_template/templates/base.html:59
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: garrlab_template/templates/base.html:64
 msgid "ACCETTO"
-msgstr ""
+msgstr "ACCETTO"
 
 #: garrlab_template/templates/base.html:184
 msgid "Questo sito NON utilizza cookie."
-msgstr ""
+msgstr "Questo sito NON utilizza cookie."
 
 #: garrlab_template/templates/base.html:185
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: garrlab_template/templates/base.html:193
 msgid "Non raccogliamo alcun dato sui nostri utenti."
-msgstr ""
+msgstr "Non raccogliamo alcun dato sui nostri utenti."
 
 #: garrlab_template/templates/base.html:197
 msgid "Chiudi"
-msgstr ""
+msgstr "Chiudi"
 
 #: urlshortener/forms.py:23
 msgid "Il valore CaPTCHA è errato !"
-msgstr ""
+msgstr "Il valore CaPTCHA è errato !"
 
 #: urlshortener/models.py:21
 msgid "Shorten Url"
-msgstr ""
+msgstr "Shorten Url"
 
 #: urlshortener/models.py:22
 msgid "Shorten Urls"
-msgstr ""
+msgstr "Shorten Urls"
 
 #: urlshortener/templates/urlshortener.html:21
 msgid "Copiato nei tuoi appunti."
-msgstr ""
+msgstr "Copiato nei tuoi appunti."
 
 #: urlshortener/templates/urlshortener.html:51
 msgid "Questo è il tuo URL abbreviato."
-msgstr ""
+msgstr "Questo è il tuo URL abbreviato."
 
 #: urlshortener/templates/urlshortener.html:52
 msgid "Sarà reso disponibile per i prossimi "
-msgstr ""
+msgstr "Sarà reso disponibile per i prossimi "
 
 #: urlshortener/templates/urlshortener.html:54
 msgid " giorni a partire da adesso."
-msgstr ""
+msgstr " giorni a partire da adesso."
 
 #: urlshortener/templates/urlshortener.html:62
 msgid "Copia questo URL nei tuoi appunti"
-msgstr ""
+msgstr "Copia questo URL nei tuoi appunti"
 
 #: urlshortener/templates/urlshortener.html:68
 msgid "Questo servizio consente di conservare per un periodo massimo di "
-msgstr ""
+msgstr "Questo servizio consente di conservare per un periodo massimo di "
 
 #: urlshortener/templates/urlshortener.html:70
 msgid "giorni un url in formato \"ristretto\"."
-msgstr ""
+msgstr "giorni un url in formato \"ristretto\"."
 
 #: urlshortener/templates/urlshortener.html:73
 msgid "Sarà più facile condividerlo con amici e colleghi."
-msgstr ""
+msgstr "Sarà più facile condividerlo con amici e colleghi."
 
 #: urlshortener/templates/urlshortener.html:81
 msgid "Inserisci il valore rappresentato nella immagine CaPTCHA."
-msgstr ""
+msgstr "Inserisci il valore rappresentato nella immagine CaPTCHA."
 
 #: urlshortener/templates/urlshortener.html:84
 msgid "Crea un URL semplificato"
-msgstr ""
+msgstr "Crea un URL semplificato"
 
 #: urlshortener/views.py:41
 msgid "I valori da te inseriti non risultano validi."
-msgstr ""
+msgstr "I valori da te inseriti non risultano validi."
 
 #: urlshortener/views.py:70
 msgid "L'Url da te inserito risulta essere scaduto e non più disponibile."
-msgstr ""
+msgstr "L'Url da te inserito risulta essere scaduto e non più disponibile."
