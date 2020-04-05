@@ -22,6 +22,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# GETTEXT LOCALIZATION
+MIDDLEWARE.append('django.middleware.locale.LocaleMiddleware')
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, "locale"),
+)
+#
+
 ROOT_URLCONF = 'tinyurl.urls'
 
 TEMPLATES = [
@@ -64,7 +71,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
-
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True

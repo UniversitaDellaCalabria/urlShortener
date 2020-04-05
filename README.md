@@ -4,6 +4,12 @@ tinyurl
 A Django URL Shortener.
 
 
+features
+--------
+
+- Full int18n support, available language english, italian
+- CaPTCHA validation
+
 setup
 -----
 
@@ -37,14 +43,28 @@ It will listen on :8000
 ./manage.py runserver
 ````
 
+localization
+------------
+
+If you need additional languages add them in the variable `LANGUAGES`, in `settingslocal.py`.
+Then create the `.po` files, edit them and compile.
+
+````
+./manage.py makemessages -l es
+./manage.py compilemessages -l es
+
+```` 
+
 gallery
 -------
 
-![Alt text](gallery/11.png)
+![Alt text](gallery/1.png)
 --------------
-![Alt text](gallery/2.png)
+![Alt text](gallery/22.png)
 --------------
 ![Alt text](gallery/3.png)
+--------------
+![Alt text](gallery/4.png)
 
 author
 ------

@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-05 17:47+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Giuseppe De Marco <giuseppe.demarco@unical.it>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: garrlab_template/templates/base.html:56
+msgid ""
+"Questo sito utilizza i cookie per migliorare il servizio e l'esperienza "
+"utente. Se decidi di continuare la navigazione consideriamo che accetti il "
+"loro uso"
+msgstr ""
+"This site uses cookie to improve the service and the user experience.If you "
+"continue navigation you will accept their use."
+
+#: garrlab_template/templates/base.html:59
+msgid "Info"
+msgstr "Info"
+
+#: garrlab_template/templates/base.html:64
+msgid "ACCETTO"
+msgstr "Agree"
+
+#: garrlab_template/templates/base.html:184
+msgid "Questo sito NON utilizza cookie."
+msgstr "This site doesn't use cookies!"
+
+#: garrlab_template/templates/base.html:185
+msgid "OK"
+msgstr ""
+
+#: garrlab_template/templates/base.html:193
+msgid "Non raccogliamo alcun dato sui nostri utenti."
+msgstr "We don't collect any information about our users"
+
+#: garrlab_template/templates/base.html:197
+msgid "Chiudi"
+msgstr "Close"
+
+#: urlshortener/forms.py:23
+msgid "Il valore CaPTCHA è errato !"
+msgstr "The CaPTCHA value that you entered is invalid !"
+
+#: urlshortener/models.py:21
+msgid "Shorten Url"
+msgstr "Url Abbreviato"
+
+#: urlshortener/models.py:22
+msgid "Shorten Urls"
+msgstr "Url Abbreviati"
+
+#: urlshortener/templates/urlshortener.html:21
+msgid "Copiato nei tuoi appunti."
+msgstr "Copied in your clipboard."
+
+#: urlshortener/templates/urlshortener.html:51
+msgid "Questo è il tuo URL abbreviato."
+msgstr "This is your shortened Url."
+
+#: urlshortener/templates/urlshortener.html:52
+msgid "Sarà reso disponibile per i prossimi "
+msgstr "It will be available for the next "
+
+#: urlshortener/templates/urlshortener.html:54
+msgid " giorni a partire da adesso."
+msgstr " days from now."
+
+#: urlshortener/templates/urlshortener.html:62
+msgid "Copia questo URL nei tuoi appunti"
+msgstr "Copy this Url in your clipboard"
+
+#: urlshortener/templates/urlshortener.html:68
+msgid "Questo servizio consente di conservare per un periodo massimo di "
+msgstr "This service store your shortened Urls for a maximum period of "
+
+#: urlshortener/templates/urlshortener.html:70
+msgid "giorni un url in formato \"ristretto\"."
+msgstr "days."
+
+#: urlshortener/templates/urlshortener.html:73
+msgid "Sarà più facile condividerlo con amici e colleghi."
+msgstr "It will be more simple to share ith your collegues and friends."
+
+#: urlshortener/templates/urlshortener.html:81
+msgid "Inserisci il valore rappresentato nella immagine CaPTCHA."
+msgstr "Please enter the value represented in the CaPTCHA image."
+
+#: urlshortener/templates/urlshortener.html:84
+msgid "Crea un URL semplificato"
+msgstr "Create a shortened Url"
+
+#: urlshortener/views.py:41
+msgid "I valori da te inseriti non risultano validi."
+msgstr "The URL or the CaPTCHA you have inserted is not valid."
+
+#: urlshortener/views.py:70
+msgid "L'Url da te inserito risulta essere scaduto e non più disponibile."
+msgstr "The URL you have inserted is Expired."
