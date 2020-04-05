@@ -10,6 +10,16 @@ from . forms import UrlShortenerForm
 from . models import UrlShortener, DELTA_DAYS
 
 
+def _clean_expired_urls():
+    urls = UrlShortener.objects.all()
+    to_clean_up = []
+    for url in urls:
+        if url.is_expired():
+            to_clean_up.append(url.pk)
+    urls_to_clean = UrlShortener.objects.filter(pk__in=to_clean_up)
+    urls_to_clean.delete()
+
+
 def urlshortener(request):
     # test message :)
     #messages.add_message(request, messages.ERROR,
@@ -19,6 +29,9 @@ def urlshortener(request):
         form = UrlShortenerForm()
 
     elif request.method == 'POST':
+        # clean oldies
+        _clean_expired_urls()
+        
         form = UrlShortenerForm(request.POST)
         if not form.is_valid():
             messages.add_message(request, messages.ERROR,
