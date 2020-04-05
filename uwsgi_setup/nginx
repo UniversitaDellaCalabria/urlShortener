@@ -28,6 +28,6 @@ server {
         add_header X-Frame-Options "DENY";
         
         uwsgi_read_timeout 33;
-        include     /opt/tinyurl/tinyurl/uwsgi_setup/uwsgi_params;
+        include     /opt/tinyurl/uwsgi_setup/uwsgi_params;
     }
 }
