@@ -4,14 +4,29 @@
 {% load static %}
 
 {% block page_body %}
+    <p>
+        {% trans 'Questo servizio ti consente di conservare per un periodo massimo di giorni ' %}
+            {{ delta_days }}
+        {% trans 'un url in formato "ristretto".' %}
+    </p>
+    <p>
+        {% trans 'Sarà più facile da condividere con amici e colleghi.' %}
+    </p>
 
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+          {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+    
     <form method='POST'>
         {% csrf_token %}
-        {{ form }}
+        {{ form.url }}
 
         <br>
-        <br>
-        <button type='submit'>{% trans 'Go' %}</button>
+        <button class="btn-primary p-2" type='submit'>{% trans 'Get a Shorten URL' %}</button>
     </form>
 
 {% endblock page_body %}

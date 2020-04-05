@@ -5,6 +5,9 @@ from django.utils import timezone
 from django.utils.translation import gettext as _
 
 
+DELTA_DAYS = getattr(settings, 'TINYURL_DURATION_DAYS', 7)
+
+
 class UrlShortener(models.Model):
     # it could be also anonymous 
     user_id = models.ForeignKey(get_user_model(),
@@ -20,8 +23,7 @@ class UrlShortener(models.Model):
 
     def is_expired(self):
         # default 7 days
-        delta = getattr(settings, 'TINYURL_DURATION_DAYS', 7)
-        if (timezone.now() - self.created).days >= delta:
+        if (timezone.now() - self.created).days >= DELTA_DAYS:
             return True 
         
     def __str__(self):
