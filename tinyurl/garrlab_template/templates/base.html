@@ -21,26 +21,11 @@
 			<meta name="theme-color" content="#ffffff">
 
 			<link href="{% static 'css/bootstrap4.css' %}" rel="stylesheet">
-
-<!--
-			<script src="{% static 'js/jquery.js' %}"></script>
--->
-<!--
-			<script src="{% static 'js/popper.js' %}"></script>
--->
-<!--
-			<script src="{% static 'js/bootstrap.js' %}"></script>
--->
-<!--
-			<script src="{% static 'js/jquery-ui.js' %}"></script>
--->
-
-<!--
-			<link rel="stylesheet" href="{% static 'css/uikit.css' %}">
--->
-<!--
-			<script src="{% static 'js/uikit.js' %}"></script>
--->
+			<link href="{% static 'css/style.css' %}" rel="stylesheet">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/css_002.css' %}">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/css_003.css' %}">
+			<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
+			<link rel="stylesheet" href="{% static 'css/all.css' %}">
 
             <script>
                 var coll = document.getElementsByClassName("collapsible");
@@ -58,12 +43,6 @@
                   });
                 }
             </script>
-
-			<link href="{% static 'css/style.css' %}" rel="stylesheet">
-			<link rel="stylesheet" type="text/css" href="{% static 'css/css_002.css' %}">
-			<link rel="stylesheet" type="text/css" href="{% static 'css/css_003.css' %}">
-			<link rel="stylesheet" type="text/css" href="{% static 'css/css.css' %}">
-			<link rel="stylesheet" href="{% static 'css/all.css' %}">
 
             {% block extra_head %}{% endblock %}
             
@@ -202,8 +181,8 @@
                     },
                     "position": "bottom-right",
                     "content": {
-                        "message": "Questo sito utilizza i cookie per migliorare il servizio e l'esperienza utente. Se decidi di continuare la navigazione consideriamo che accetti il loro uso",
-                        "dismiss": "ACCETTO",
+                        "message": "{% trans 'Questo sito NON utilizza cookie.' %}",
+                        "dismiss": "{% trans 'OK' %}",
                         "link": "Info",
                         "href": "https://servizi.garr.it/cookies"
                     }
@@ -211,35 +190,12 @@
 		</script>
 	<div id="privacyPolicy" style="display:none">
 	    <h2>Privacy Policy</h2>
-	    <h4>Quali dati raccogliamo</h4>
+	    <h4>{% trans 'Non raccogliamo alcun dato sui nostri utenti.' %}</h4>
 	    <p>
-		Alla fine del test, vengono raccolti e memorizzati i seguenti dati:
-	        </p><ul>
-	            <li>User agent e lingua browser</li>
-	            <li>Test log (non contiene informazioni personali)</li>
-	        </ul>
-	    <p></p>
-	    <h4>Come utilizziamo i dati</h4>
-	    <p>
-	        I dati raccolti tramite questo servizio vengono utilizzati per:
-	        </p><ul>
-	            <li>Permettere la condivisione dei risultati del test (immagine condivisibile per forum, ecc...)</li>
-	            <li>Per migliorare il servizio offerto (ad esempio per rilevare problemi dalla nostra parte)</li>
-	        </ul>
-		Nessuna informazione personale viene divulgata a terzi.
-	    <p></p>
-	    <h4>Rimozione dei dati</h4>
-	    <p>
-	        Se desideri che le tue informazioni vengano cancellate, devi 
-fornire l'ID del test o il tuo indirizzo IP. Questo è l'unico modo per 
-identificare i tuoi dati, senza queste informazioni non saremo in grado 
-di soddisfare la tua richiesta.<br><br>
-	        Contatta questo indirizzo email per tutte le richieste di cancellazione: <a href="mailto:info@garr.it">speedtest-support@garr.it</a>.
 	    </p>
 	    <br><br>
-	    <a class="privacy" href="#" onclick="I('privacyPolicy').style.display='none'">Close</a><br>
+	    <a class="privacy" href="#" onclick="I('privacyPolicy').style.display='none'">{% trans 'Chiudi' %}</a><br>
 	</div>
-    
 
 </div>
 </body>

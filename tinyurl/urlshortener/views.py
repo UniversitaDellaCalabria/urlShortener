@@ -38,7 +38,7 @@ def urlshortener(request):
         form = UrlShortenerForm(data=request.POST)
         if not form.is_valid():
             messages.add_message(request, messages.ERROR,
-                                 _('The URL or the CaPTCHA you have inserted is not valid.'))
+                                 _('I valori da te inseriti non risultano validi.'))
             data = copy.deepcopy(request.POST)
             initial['url'] = form.cleaned_data['url']
             form = UrlShortenerForm(initial=initial)
@@ -67,7 +67,7 @@ def get_shorturl(request, shorturl):
     ursh = get_object_or_404(UrlShortener, shorten_url=shorturl)
     if ursh.is_expired():
         messages.add_message(request, messages.ERROR,
-                                 _('The URL you have inserted is Expired.'))
+                                 _("L'Url da te inserito risulta essere scaduto e non più disponibile."))
     return HttpResponseRedirect(ursh.original_url)
     
     

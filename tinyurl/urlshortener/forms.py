@@ -6,7 +6,7 @@ from . enc import decrypt
 
 class UrlShortenerForm(forms.Form):
     url = forms.URLField(widget=forms.URLInput(attrs={'class': 'form-control'}))
-    captcha = forms.CharField()
+    captcha = forms.CharField(max_length=2048)
     captcha_hidden = forms.CharField(widget=forms.HiddenInput())
 
     def clean(self, *args, **kwargs):
@@ -20,4 +20,4 @@ class UrlShortenerForm(forms.Form):
         if '' in (captcha, dcaptcha) or \
             dcaptcha.lower() != captcha.lower():
             errors = self.add_error('captcha',
-                                    _('You have inserted an invalid captcha value !'))
+                                    _('Il valore CaPTCHA è errato !'))

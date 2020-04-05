@@ -18,7 +18,7 @@
       console.log("Copied the text: " + copyText.value);
       /* make message visible*/
       var tooltip = document.getElementById("myTooltip");
-      tooltip.innerHTML = "<b>" + copyText.value + "</b> Copied to Clipboard.";
+      tooltip.innerHTML = "<b>" + copyText.value + "</b> {%trans 'Copiato nei tuoi appunti.' %}";
       tooltip.style.visibility = 'visible';
     }
 
@@ -48,10 +48,10 @@
               value="{{ request.build_absolute_uri }}{{ urlsh.shorten_url }}" id="shortened_url">
           </h3>
           <p class="lead text-secondary">
-              {% trans 'This is your shortened URL.' %}
-              {% trans 'It will be available for ' %}
+              {% trans 'Questo è il tuo URL abbreviato.' %}
+              {% trans 'Sarà reso disponibile per i prossimi ' %}
                 <span style="font-width: 400;">{{ delta_days }}</span>
-              {% trans 'days from now.' %}
+              {% trans ' giorni a partire da adesso.' %}
           </p>
           <hr class="my-4">
 
@@ -59,7 +59,7 @@
           
           <div>
               <button class="btn btn-primary btn-lg" onclick="copyToClipboard()">
-                  {% trans "Copy your Shortened URL" %}
+                  {% trans "Copia questo URL nei tuoi appunti" %}
               </button>
           </div>
         </div>
@@ -78,10 +78,10 @@
             <br>
             <img class="captcha_img"
                  src="data:image/png;base64,{{ captcha_img }}" />
-            <p class="text-secondary">{% trans "Insert the value represented in the CaPTCHA image" %}</p>
+            <p class="text-secondary">{% trans "Inserisci il valore rappresentato nella immagine CaPTCHA." %}</p>
             {{ form.captcha }}
             {{ form.captcha_hidden }}
-            <button class="btn-primary p-2 ml-2" type='submit'>{% trans 'Get a Shorten URL' %}</button>
+            <button class="btn-primary p-2 ml-2" type='submit'>{% trans 'Crea un URL semplificato' %}</button>
         </form>
     {% endif %}
     
