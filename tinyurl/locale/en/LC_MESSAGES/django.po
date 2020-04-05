@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-05 17:47+0000\n"
+"POT-Creation-Date: 2020-04-05 18:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Giuseppe De Marco <giuseppe.demarco@unical.it>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,6 +49,14 @@ msgstr "We don't collect any information about our users"
 #: garrlab_template/templates/base.html:197
 msgid "Chiudi"
 msgstr "Close"
+
+#: tinyurl/settingslocal.py:53
+msgid "Italian"
+msgstr ""
+
+#: tinyurl/settingslocal.py:54
+msgid "English"
+msgstr ""
 
 #: urlshortener/forms.py:23
 msgid "Il valore CaPTCHA è errato !"
@@ -92,7 +100,7 @@ msgstr "days."
 
 #: urlshortener/templates/urlshortener.html:73
 msgid "Sarà più facile condividerlo con amici e colleghi."
-msgstr "It will be more simple to share ith your collegues and friends."
+msgstr "It will be more simple to share it with your collegues and friends."
 
 #: urlshortener/templates/urlshortener.html:81
 msgid "Inserisci il valore rappresentato nella immagine CaPTCHA."
