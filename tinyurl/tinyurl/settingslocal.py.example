@@ -17,7 +17,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +40,10 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# Change these in production use
+ENCRYPTION_SECRET = b'secret'
+ENCRYPTION_SALT = b'salt'
 
 TINYURL_DURATION_DAYS = 12
 ADMIN_PATH = 'gestione'
