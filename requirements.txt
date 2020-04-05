@@ -1,1 +1,2 @@
 django>3,<4
+short_url

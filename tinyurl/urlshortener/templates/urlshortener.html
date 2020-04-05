@@ -4,15 +4,6 @@
 {% load static %}
 
 {% block page_body %}
-    <p>
-        {% trans 'Questo servizio ti consente di conservare per un periodo massimo di giorni ' %}
-            {{ delta_days }}
-        {% trans 'un url in formato "ristretto".' %}
-    </p>
-    <p>
-        {% trans 'Sarà più facile da condividere con amici e colleghi.' %}
-    </p>
-
     {% if messages %}
         {% for message in messages %}
         <div class="alert alert-danger" role="alert">
@@ -20,15 +11,32 @@
         </div>
         {% endfor %}
     {% endif %}
+
+    {% if urlsh %}
+        <div class="jumbotron">
+          <h2 class="display-4">{{ request.build_absolute_uri }}{{ urlsh.shorten_url }}</h2>
+          <p class="lead">{% trans 'This is your shortened URL.' %}</p>
+          <hr class="my-4">
+          <a class="btn btn-primary btn-lg" href="#" role="button">{% trans 'Click here to copy it to clipboard' %}</a>
+        </div>
+    {% else %}
+        <p>
+            {% trans 'Questo servizio ti consente di conservare per un periodo massimo di giorni ' %}
+                {{ delta_days }}
+            {% trans 'un url in formato "ristretto".' %}
+        </p>
+        <p>
+            {% trans 'Sarà più facile da condividere con amici e colleghi.' %}
+        </p>
+        <form method='POST'>
+            {% csrf_token %}
+            {{ form.url }}
     
-    <form method='POST'>
-        {% csrf_token %}
-        {{ form.url }}
-
-        <br>
-        <button class="btn-primary p-2" type='submit'>{% trans 'Get a Shorten URL' %}</button>
-    </form>
-
+            <br>
+            <button class="btn-primary p-2" type='submit'>{% trans 'Get a Shorten URL' %}</button>
+        </form>
+    {% endif %}
+    
 {% endblock page_body %}
 
 
