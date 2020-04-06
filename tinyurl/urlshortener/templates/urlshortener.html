@@ -18,7 +18,7 @@
       console.log("Copied the text: " + copyText.value);
       /* make message visible*/
       var tooltip = document.getElementById("myTooltip");
-      tooltip.innerHTML = "<b>" + copyText.value + "</b> {%trans ' è stato copiato nei tuoi appunti.' %}";
+      tooltip.innerHTML = "<a href='" + copyText.value + "' target='_tinyurl'><b>"+ copyText.value +"</b></a>" + "{%trans ' è stato copiato nei tuoi appunti.' %}";
       tooltip.style.visibility = 'visible';
 
       var msg = document.getElementById("dyn-msg");
