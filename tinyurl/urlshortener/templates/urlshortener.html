@@ -20,6 +20,9 @@
       var tooltip = document.getElementById("myTooltip");
       tooltip.innerHTML = "<b>" + copyText.value + "</b> {%trans ' è stato copiato nei tuoi appunti.' %}";
       tooltip.style.visibility = 'visible';
+
+      var msg = document.getElementById("dyn-msg");
+      msg.innerHTML = "<div class='alert alert-success' role='alert'> <b>" + copyText.value + "</b> {%trans ' è stato copiato nei tuoi appunti.' %} </div>" ;
     }
 
     window.onload = function () {
@@ -46,6 +49,8 @@
         {% endfor %}
     {% endif %}
 
+    <div id='dyn-msg'></div>
+    
     {% if urlsh %}
         <div class="jumbotron">
           <h3 class="display-5">
