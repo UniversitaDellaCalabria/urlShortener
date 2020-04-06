@@ -7,10 +7,10 @@
 			<meta charset="utf-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<meta name="description" content="GARR {{ project_name|default_if_none:"tinyUrl" }}">
-			<meta name="author" content="Consortium GARR">
+			<meta name="description" content="{{ project_name|default_if_none:"tinyUrl" }}">
+			<meta name="author" content="Giuseppe De Marco - GarrLab">
 
-			<title>GARR {{ project_name|default_if_none:"tinyUrl" }}</title>
+			<title>{{ project_name|default_if_none:"tinyUrl" }}</title>
 
 			<link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}">
 			<link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
@@ -68,6 +68,8 @@
     </div>
 	<div class="wrap">
 		<div class="container pb-3 pt-3 pr-0">
+
+            {% block menu_top %}
 			<div class="row ">
 				<div class="col-md-12 ">
 					<ul class="nav general-top-menu-ul float-right">
@@ -85,6 +87,7 @@
 					</ul>
 				</div>
 			</div>
+            {% endblock menu_top %}
 		</div>
 		<div class="container main-container shadow">
 			<div class="row rounded-top nav-row shadow ">
@@ -92,7 +95,9 @@
 					<nav class="navbar navbar-expand-xl navbar-dark p-0 ">
 						<div class="d-none d-lg-block bg-white p-2" style=" border-top-left-radius: .25rem !important;">
 							<a class="navbar-brand p-3" href="/">
+                            {% block logo %}
                                 <img class="" src="{% static 'img/logo-servizi-medio.png' %}" alt="" style="height: 60px;width: auto;">
+                            {% endblock logo %}
                             </a>
 						</div>
 						<div class="d-lg-none p-2">
@@ -124,7 +129,7 @@
 			</div>
 
 				<div class="col-md-12 mt-5 text-left">
-					<h1 class="header-title border-bottom">GARR {{ project_name|default_if_none:"tinyUrl" }}</h1>
+					<h1 class="header-title border-bottom">{{ project_name|default_if_none:"tinyUrl" }}</h1>
 				</div>
 
             <!--INIZIO CONTENUTO-->
