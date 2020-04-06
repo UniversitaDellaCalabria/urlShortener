@@ -39,7 +39,6 @@ def urlshortener(request):
         if not form.is_valid():
             messages.add_message(request, messages.ERROR,
                                  _('I valori da te inseriti non risultano validi.'))
-            data = copy.deepcopy(request.POST)
             initial['url'] = form.data.get('url')
             form = UrlShortenerForm(initial=initial)
         else:
