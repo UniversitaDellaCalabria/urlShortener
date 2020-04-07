@@ -102,7 +102,9 @@
 						</div>
 						<div class="d-lg-none p-2">
 							<a class="navbar-brand ml-4" href="/">
+                                {% block logo_navbar %}
                                 <img class="" src="{% static 'img/logo-servizi-medio.png' %}" alt="" style="height: 60px;width: auto; ">
+                                {% endblock logo_navbar %}
                             </a>
 						</div>
 						<button class="navbar-toggler m-4" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
