@@ -24,4 +24,4 @@ urlpatterns = [
 
 if 'urlshortener' in settings.INSTALLED_APPS:
     import urlshortener.urls
-    urlpatterns += path('', include((urlshortener.urls, 'urlshortener',))),
+    urlpatterns += path('', include((urlshortener.urls, 'urlshortener',))),    

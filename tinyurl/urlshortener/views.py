@@ -1,15 +1,17 @@
 import copy
-import short_url
 
 from django.conf import settings
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext as _
+from rest_framework import viewsets
+from rest_framework import permissions
 
 from . captcha import get_captcha
 from . forms import UrlShortenerForm
 from . models import UrlShortener, DELTA_DAYS
+from . serializers import UrlShortenerSerializer
 
 
 def _clean_expired_urls():
@@ -48,8 +50,6 @@ def urlshortener(request):
                 entry = dict(original_url=form.cleaned_data['url'],
                              user_id=request.user if request.user.is_authenticated else None)
                 urlsh = UrlShortener.objects.create(**entry)
-                urlsh.shorten_url = short_url.encode_url(urlsh.pk)
-                urlsh.save()
     
     context = dict(
         project_name='Url Shortener',
@@ -70,4 +70,11 @@ def get_shorturl(request, shorturl):
     return HttpResponseRedirect(ursh.original_url)
     
     
-    
+# API
+class UrlShortenerViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = UrlShortener.objects.all()
+    serializer_class = UrlShortenerSerializer
+    permission_classes = [permissions.IsAuthenticated]

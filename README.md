@@ -55,6 +55,36 @@ Then create the `.po` files, edit them and compile.
 
 ```` 
 
+API
+---
+
+Basic Authentication
+````
+curl -H 'Accept: application/json; indent=4' -u username:thatpassword http://127.0.0.1:8000/api/tinyurl/
+````
+
+Using Auth Tokens
+````
+# create a token linked to a user
+./manage.py drf_create_token wert
+
+# Use the token to get in
+curl -X GET http://127.0.0.1:8000/api/tinyurl/ -H 'Authorization: Token 27b74b0a4dde305eda972e821de4e5823989cf39' -H 'Accept: applicaion/json; indent=4'
+
+# POST data
+curl -X POST -d "original_url=http://goal.it"  http://127.0.0.1:8000/api/tinyurl/ -H 'Authorization: Token 27b74b0a4dde305eda972e821de4e5823989cf39'
+# returns
+# {"original_url":"http://goal.it","shorten_url":"p9pdw","created":"2020-04-07T23:37:11.960616Z"}
+````
+
+Play with Tokens
+````
+from rest_framework.authtoken.models import Token
+
+token = Token.objects.create(user=...)
+print(token.key)
+````
+
 gallery
 -------
 

@@ -32,8 +32,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'urlshortener',
-    'garrlab_template'
+    'garrlab_template',
+    'rest_framework',
+    'rest_framework.authtoken'
 ]
+
+if 'rest_framework' in INSTALLED_APPS:
+    REST_FRAMEWORK = {
+        'DEFAULT_PERMISSION_CLASSES': [
+            'rest_framework.permissions.IsAuthenticated',
+        ]
+    }
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases

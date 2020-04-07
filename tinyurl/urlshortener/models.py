@@ -1,3 +1,5 @@
+import short_url
+
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import models
@@ -14,7 +16,7 @@ class UrlShortener(models.Model):
                                 on_delete=models.SET_NULL,
                                 blank=True, null=True)
     original_url = models.URLField(max_length=2048)
-    shorten_url = models.CharField(max_length=50)
+    shorten_url = models.CharField(max_length=50, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -25,6 +27,10 @@ class UrlShortener(models.Model):
         # default 7 days
         if (timezone.now() - self.created).days >= DELTA_DAYS:
             return True 
+
+    def save(self, *args, **kwargs):
+        super(UrlShortener, self).save(*args, **kwargs)
+        self.shorten_url = short_url.encode_url(self.pk)
         
     def __str__(self):
         return '{} [{}]'.format(self.shorten_url, self.original_url)
