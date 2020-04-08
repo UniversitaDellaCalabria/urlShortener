@@ -10,6 +10,16 @@ from django.utils.translation import gettext as _
 DELTA_DAYS = getattr(settings, 'TINYURL_DURATION_DAYS', 7)
 
 
+def clean_expired_urls():
+    urls = UrlShortener.objects.all()
+    to_clean_up = []
+    for url in urls:
+        if url.is_expired():
+            to_clean_up.append(url.pk)
+    urls_to_clean = UrlShortener.objects.filter(pk__in=to_clean_up)
+    urls_to_clean.delete()
+
+
 class UrlShortener(models.Model):
     # it could be also anonymous 
     user_id = models.ForeignKey(get_user_model(),

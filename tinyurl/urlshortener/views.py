@@ -11,17 +11,7 @@ from rest_framework import permissions
 from . captcha import get_captcha
 from . forms import UrlShortenerForm
 from . models import UrlShortener, DELTA_DAYS
-from . serializers import UrlShortenerSerializer
-
-
-def _clean_expired_urls():
-    urls = UrlShortener.objects.all()
-    to_clean_up = []
-    for url in urls:
-        if url.is_expired():
-            to_clean_up.append(url.pk)
-    urls_to_clean = UrlShortener.objects.filter(pk__in=to_clean_up)
-    urls_to_clean.delete()
+from . serializers import UrlShortenerSerializer, clean_expired_urls
 
 
 def urlshortener(request):
@@ -36,7 +26,7 @@ def urlshortener(request):
         form = UrlShortenerForm(initial=initial)
     elif request.method == 'POST':
         # clean oldies
-        _clean_expired_urls()
+        clean_expired_urls()
         form = UrlShortenerForm(data=request.POST)
         if not form.is_valid():
             messages.add_message(request, messages.ERROR,

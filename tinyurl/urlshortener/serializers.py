@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from . models import UrlShortener
+from . models import UrlShortener, clean_expired_urls
 
 
 class UrlShortenerSerializer(serializers.HyperlinkedModelSerializer):
@@ -12,6 +12,7 @@ class UrlShortenerSerializer(serializers.HyperlinkedModelSerializer):
         """
         Create and return a new `Snippet` instance, given the validated data.
         """
+        clean_expired_urls()
         urlsh = UrlShortener.objects.filter(original_url=validated_data['original_url']).first()
         if not urlsh:
             entry = dict(original_url=validated_data['original_url'])
