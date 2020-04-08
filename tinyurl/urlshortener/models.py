@@ -35,6 +35,7 @@ class UrlShortener(models.Model):
     def set_shorten_url(self):
         if not self.shorten_url:
             self.shorten_url = short_url.encode_url(self.pk)
+            self.save()
         return self.shorten_url
         
     def __str__(self):
