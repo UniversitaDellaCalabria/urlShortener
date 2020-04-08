@@ -1,16 +1,16 @@
-tinyurl
+TinyURL
 -------
 
 A Django URL Shortener.
 
 
-features
+Features
 --------
 
 - Full int18n support, available language english, italian
 - CaPTCHA validation
 
-setup
+Setup
 -----
 
 ````
@@ -21,7 +21,7 @@ source env/bin/activate
 pip install -r requirements.txt
 ````
 
-first run
+First run
 ---
 
 ````
@@ -35,7 +35,35 @@ cp tinyurl/settingslocal.py.example tinyurl/settingslocal.py
 ./manage collectstatic
 ````
 
-run
+Important parameters in `settingslocal.py`
+
+````
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'uilbg9^$cs3427dhrppmgibuiof6yc-2_y#6sg^!mzmioo6=-l'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+# do not use * in production, but the server hostname
+ALLOWED_HOSTS = ['*']
+FQDN = 'https://url.garrlab.it'
+
+# See django documentation for a production ready RDBMS
+DATABASES = {'...'}
+
+# Change these in production use
+ENCRYPTION_SECRET = b'secret'
+ENCRYPTION_SALT = b'salt'
+
+# se this to 0 to disable URL deletion
+TINYURL_DURATION_DAYS = 12
+
+# change this to have a different webpath to admin backend
+ADMIN_PATH = 'gestione'
+````
+
+
+Run
 ---
 
 It will listen on :8000
@@ -43,7 +71,7 @@ It will listen on :8000
 ./manage.py runserver
 ````
 
-localization
+Localization
 ------------
 
 If you need additional languages add them in the variable `LANGUAGES`, in `settingslocal.py`.
@@ -93,7 +121,7 @@ API TroubleShooting
 
 - "__Could not satisfy the request Accept header.__": remove `'Accept: applicaion/json; indent=4'` from request or see [Doc](https://www.django-rest-framework.org/api-guide/content-negotiation/)
 
-gallery
+Gallery
 -------
 
 ![Alt text](gallery/1.png)
@@ -104,13 +132,13 @@ gallery
 --------------
 ![Alt text](gallery/4.png)
 
-author
+Author
 ------
 
 Giuseppe De Marco <giuseppe.demarco@unical.it>
 
-credits
+Credits
 -------
 
-GarrLab community
-Francesco Izzi
+- GarrLab community
+- Francesco Izzi

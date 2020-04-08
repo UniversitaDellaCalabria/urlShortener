@@ -34,11 +34,16 @@
 <style>
 
     #id_captcha {
-            padding: 8px;
-            margin-bottom:8px;
-            min-width: 254px;
+            padding: 5px;
+            min-width: 160px;
         }
 
+    .captcha_img {
+            border: 1px dotted grey;
+            border-radius: 5px;
+            padding: 8px;
+        }
+    
 </style>
 {% endblock extra_head %}
 
@@ -46,11 +51,15 @@
 {% endblock menu_top %}
 
 {% block logo %}
+<!--
 <img class="" src="{% static 'img/garrlab.jpeg' %}" alt="" style="height: 60px;width: auto;">
+-->
 {% endblock logo %}
 
 {% block logo_navbar %}
+<!--
 <img class="" src="{% static 'img/garrlab.jpeg' %}" alt="" style="height: 60px;width: auto;">
+-->
 {% endblock logo_navbar %}
 
 {% block page_body %}
@@ -66,11 +75,12 @@
     
     {% if urlsh %}
         <div class="jumbotron">
-          <h3 class="display-5">
+          
+          <h3 class="display-10">
               <input type="text" style="border:none; background: none;" class="w-100"
-              value="{{ fqdn }}{{ urlsh.shorten_url }}" id="shortened_url">
+              value="{{ tinyurl }}" id="shortened_url">
           </h3>
-          <p class="lead text-secondary">
+          <p class="">
               {% trans 'Questo è il tuo URL abbreviato.' %}
               {% trans 'Sarà reso disponibile per i prossimi ' %}
                 <span style="font-width: 400;">{{ delta_days }}</span>
@@ -80,20 +90,28 @@
 
           <p id="myTooltip"></p>
           
-          <div>
+          <div class="row justify-content-start">
+            <div class="col col-md-3 mt-2">
               <button class="btn btn-primary btn-lg" onclick="copyToClipboard()">
-                  {% trans "Copia questo URL" %}
+                {% trans "Copia questo URL" %}
               </button>
-              <button class="btn btn-secondary btn-lg mt-1" onclick="window.location='/'">
-                  {% trans "Torna alla Home" %}
+            </div>
+            <div class="col col-md-3 mt-2">
+              <button class="btn btn-secondary btn-lg" onclick="window.location='/'">
+                {% trans "Torna alla Home" %}
               </button>
-
+            </div>
           </div>
+          
         </div>
     {% else %}
         <p style="margin-bottom: 3px;">
-            {% trans 'Questo servizio consente di conservare per un periodo massimo di ' %}
-                {{ delta_days }}
+            {% trans 'Questo servizio consente di conservare per ' %}
+                {% if delta_days %}
+                    {{ delta_days }}
+                {% else %}
+                    <b>{% trans 'infiniti ' %}</b>
+                {% endif %}
             {% trans 'giorni un url in formato "ristretto".' %}
         </p>
         <p>
@@ -106,9 +124,20 @@
             <img class="captcha_img"
                  src="data:image/png;base64,{{ captcha_img }}" />
             <p class="text-secondary">{% trans "Inserisci il valore rappresentato nella immagine CaPTCHA." %}</p>
-            {{ form.captcha }}
-            {{ form.captcha_hidden }}
-            <button class="btn btn-primary btn-lg p-2" type='submit'>{% trans 'Crea un URL semplificato' %}</button>
+
+            <div class="row justify-content-start">
+              <div class="col col-md-3 mt-2">
+                {{ form.captcha }}
+                {{ form.captcha_hidden }}
+              </div>
+              <div class="col col-md-3 mt-2">
+                <button class="btn btn-primary" style="padding: 6px;" type='submit'>{% trans 'Crea un URL semplificato' %}</button>
+              </div>
+            </div>
+
+
+
+
         </form>
     {% endif %}
 

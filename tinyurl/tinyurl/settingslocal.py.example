@@ -58,8 +58,12 @@ DATABASES = {
 ENCRYPTION_SECRET = b'secret'
 ENCRYPTION_SALT = b'salt'
 
-TINYURL_DURATION_DAYS = 12
+# put it to 0 to disable deletion
+TINYURL_DURATION_DAYS = 0
+
+# change this to have a different webpath to admin backend
 ADMIN_PATH = 'gestione'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LANGUAGE_CODE = 'it-it'

@@ -8,15 +8,19 @@ from django.utils import timezone
 from django.utils.translation import gettext as _
 
 
-DELTA_DAYS = getattr(settings, 'TINYURL_DURATION_DAYS', 7)
+DELTA_DAYS = getattr(settings, 'TINYURL_DURATION_DAYS', 0)
 logger = logging.getLogger(__name__)
 
 
 def clean_expired_urls():
+    # if not DELTA_DAYS do nothing
+    if not DELTA_DAYS:
+        return
+    
     urls = UrlShortener.objects.all()
     to_clean_up = []
     for url in urls:
-        if url.is_expired():
+        if (timezone.now() - url.created).days >= DELTA_DAYS:
             to_clean_up.append(url.pk)
     urls_to_clean = UrlShortener.objects.filter(pk__in=to_clean_up)
     urls_to_clean.delete()
@@ -34,11 +38,6 @@ class UrlShortener(models.Model):
     class Meta:
         verbose_name = _('Shorten Url')
         verbose_name_plural = _('Shorten Urls')
-
-    def is_expired(self):
-        # default 7 days
-        if (timezone.now() - self.created).days >= DELTA_DAYS:
-            return True 
 
     @property
     def url(self):

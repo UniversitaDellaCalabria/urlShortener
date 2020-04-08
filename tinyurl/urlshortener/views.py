@@ -15,10 +15,8 @@ from . serializers import UrlShortenerSerializer, clean_expired_urls
 
 
 def urlshortener(request):
-    # test message :)
-    #messages.add_message(request, messages.ERROR,
-                                 #_('The URL you have inserted is not valid.'))
     urlsh = None
+    tinyurl = ''
     captcha, captcha_img, captcha_hidden = get_captcha()
     initial={'captcha_hidden': captcha_hidden}
 
@@ -41,14 +39,15 @@ def urlshortener(request):
                              user_id=request.user if request.user.is_authenticated else None)
                 urlsh = UrlShortener.objects.create(**entry)
                 urlsh.set_shorten_url()
-    
+            tinyurl = urlsh.get_redirect_url(request)
+                
     context = dict(
         project_name='Url Shortener',
         form = form,
         delta_days = DELTA_DAYS,
         urlsh = urlsh,
         captcha_img = captcha_img,
-        fqdn = getattr(settings, 'FQDN', request.build_absolute_uri())
+        tinyurl = tinyurl
     )
     return render(request, 'urlshortener.html', context)
 
