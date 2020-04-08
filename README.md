@@ -75,6 +75,10 @@ curl -X GET http://127.0.0.1:8000/api/tinyurl/ -H 'Authorization: Token 27b74b0a
 curl -X POST -d "original_url=http://goal.it"  http://127.0.0.1:8000/api/tinyurl/ -H 'Authorization: Token 27b74b0a4dde305eda972e821de4e5823989cf39'
 # returns
 # {"original_url":"http://goal.it","shorten_url":"p9pdw","created":"2020-04-07T23:37:11.960616Z"}
+
+# encode data url with cURL
+export URL="https://smartcities-matera-clara.imaa.cnr.it/maplite/#/view/dashboard?mapID=300-50&x=16.620039939880375&y=40.65948038538384&zoom=14&baseMap=GOOGLE_SATELLITE"
+curl -X POST --data-urlencode "original_url=$URL"  https://url.garrlab.it/api/tinyurl/ -H 'Authorization: Token 27b74b0a4dde305eda972e821de4e5823989cf39'
 ````
 
 Play with Tokens
@@ -109,3 +113,4 @@ credits
 -------
 
 GarrLab community
+Francesco Izzi
