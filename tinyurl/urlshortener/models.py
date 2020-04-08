@@ -28,9 +28,14 @@ class UrlShortener(models.Model):
         if (timezone.now() - self.created).days >= DELTA_DAYS:
             return True 
 
-    def save(self, *args, **kwargs):
-        super(UrlShortener, self).save(*args, **kwargs)
-        self.shorten_url = short_url.encode_url(self.pk)
+    #def save(self, *args, **kwargs):
+        #super(UrlShortener, self).save(*args, **kwargs)
+        #self.shorten_url = short_url.encode_url(self.pk)
+
+    def set_shorten_url(self):
+        if not self.shorten_url:
+            self.shorten_url = short_url.encode_url(self.pk)
+        return self.shorten_url
         
     def __str__(self):
         return '{} [{}]'.format(self.shorten_url, self.original_url)

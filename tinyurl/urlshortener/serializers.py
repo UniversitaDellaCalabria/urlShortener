@@ -16,10 +16,11 @@ class UrlShortenerSerializer(serializers.HyperlinkedModelSerializer):
         if not urlsh:
             entry = dict(original_url=validated_data['original_url'])
             urlsh = UrlShortener.objects.create(**entry)
+        urlsh.set_shorten_url()
         return urlsh
 
-    def update(self, instance, validated_data):
-        return UrlShortener.objects.filter(original_url=validated_data['original_url']).first()
+    #def update(self, instance, validated_data):
+        #return UrlShortener.objects.filter(original_url=validated_data['original_url']).first()
         #"""
         #Update and return an existing `Snippet` instance, given the validated data.
         #"""

@@ -50,6 +50,7 @@ def urlshortener(request):
                 entry = dict(original_url=form.cleaned_data['url'],
                              user_id=request.user if request.user.is_authenticated else None)
                 urlsh = UrlShortener.objects.create(**entry)
+                urlsh.set_shorten_url()
     
     context = dict(
         project_name='Url Shortener',
