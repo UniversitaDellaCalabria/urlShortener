@@ -6,7 +6,7 @@ from . models import UrlShortener, clean_expired_urls
 class UrlShortenerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = UrlShortener
-        fields = ['original_url', 'shorten_url', 'created']
+        fields = ['original_url', 'shorten_url', 'created', 'url']
 
     def create(self, validated_data):
         """

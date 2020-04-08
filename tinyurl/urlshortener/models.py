@@ -1,3 +1,4 @@
+import logging
 import short_url
 
 from django.conf import settings
@@ -8,6 +9,7 @@ from django.utils.translation import gettext as _
 
 
 DELTA_DAYS = getattr(settings, 'TINYURL_DURATION_DAYS', 7)
+logger = logging.getLogger(__name__)
 
 
 def clean_expired_urls():
@@ -38,9 +40,21 @@ class UrlShortener(models.Model):
         if (timezone.now() - self.created).days >= DELTA_DAYS:
             return True 
 
-    #def save(self, *args, **kwargs):
-        #super(UrlShortener, self).save(*args, **kwargs)
-        #self.shorten_url = short_url.encode_url(self.pk)
+    @property
+    def url(self):
+        return self.get_redirect_url()
+
+    def get_redirect_url(self, request=None):
+        abs_url = getattr(settings, 'FQDN', None)
+        if not abs_url and request:
+            return request.build_absolute_uri()
+        if not abs_url:
+            logger.error(_('Cannot build redirect url, '
+                           'please set FQDN in settings.py or '
+                           'pass request object to get_redirect_rul()'))
+            return self.shorten_url
+        else:
+            return '{}/{}'.format(abs_url.rstrip('/'), self.shorten_url)
 
     def set_shorten_url(self):
         if not self.shorten_url:
