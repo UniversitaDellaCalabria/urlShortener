@@ -1,7 +1,9 @@
 TinyURL
 -------
 
-A Django URL Shortener.
+A Django URL Shortener based on python [short_url](https://github.com/Alir3z4/python-short_url).
+
+It uses a bit-shuffling approach is used to avoid generating consecutive, predictable URLs. However, the algorithm is deterministic and will guarantee that no collisions will occur.
 
 
 Features
@@ -9,6 +11,7 @@ Features
 
 - Full int18n support, available language english, italian
 - CaPTCHA validation
+- Rest-API with Basic and Token Authentication
 
 Setup
 -----
@@ -62,7 +65,6 @@ TINYURL_DURATION_DAYS = 12
 ADMIN_PATH = 'gestione'
 ````
 
-
 Run
 ---
 
@@ -75,7 +77,7 @@ Localization
 ------------
 
 If you need additional languages add them in the variable `LANGUAGES`, in `settingslocal.py`.
-Then create the `.po` files, edit them and compile.
+Then create the `.po` files, edit them and compile. Follows an example with Espanish localization:
 
 ````
 ./manage.py makemessages -l es
