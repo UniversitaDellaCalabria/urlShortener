@@ -85,6 +85,10 @@ token = Token.objects.create(user=...)
 print(token.key)
 ````
 
+API TroubleShooting
+
+- "__Could not satisfy the request Accept header.__": remove `'Accept: applicaion/json; indent=4'` from request or see [Doc](https://www.django-rest-framework.org/api-guide/content-negotiation/)
+
 gallery
 -------
 

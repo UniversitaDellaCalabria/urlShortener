@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from . models import UrlShortener
 
 
@@ -7,11 +8,15 @@ class UrlShortenerSerializer(serializers.HyperlinkedModelSerializer):
         model = UrlShortener
         fields = ['original_url', 'shorten_url', 'created']
 
-    #def create(self, validated_data):
-        #"""
-        #Create and return a new `Snippet` instance, given the validated data.
-        #"""
-        #return UrlShortener.objects.create(**validated_data)
+    def create(self, validated_data):
+        """
+        Create and return a new `Snippet` instance, given the validated data.
+        """
+        urlsh = UrlShortener.objects.filter(original_url=validated_data['original_url']).first()
+        if not urlsh:
+            entry = dict(original_url=validated_data['original_url'])
+            urlsh = UrlShortener.objects.create(**entry)
+        return urlsh
 
     #def update(self, instance, validated_data):
         #"""
