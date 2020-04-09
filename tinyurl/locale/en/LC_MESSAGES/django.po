@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-05 23:38+0000\n"
+"POT-Creation-Date: 2020-04-09 08:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Giuseppe De Marco <giuseppe.demarco@unical.it>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,88 +34,109 @@ msgstr "Info"
 msgid "ACCETTO"
 msgstr "Agree"
 
-#: garrlab_template/templates/base.html:184
+#: garrlab_template/templates/base.html:191
 msgid "Questo sito NON utilizza cookie."
 msgstr "This site doesn't use cookies!"
 
-#: garrlab_template/templates/base.html:185
+#: garrlab_template/templates/base.html:192
 msgid "OK"
 msgstr ""
 
-#: garrlab_template/templates/base.html:193
+#: garrlab_template/templates/base.html:200
 msgid "Non raccogliamo alcun dato sui nostri utenti."
 msgstr "We don't collect any information about our users"
 
-#: garrlab_template/templates/base.html:197
+#: garrlab_template/templates/base.html:204
 msgid "Chiudi"
 msgstr "Close"
 
-#: tinyurl/settingslocal.py:57
+#: tinyurl/settingslocal.py:78
 msgid "Italian"
 msgstr ""
 
-#: tinyurl/settingslocal.py:58
+#: tinyurl/settingslocal.py:79
 msgid "English"
 msgstr ""
 
-#: urlshortener/forms.py:24
+#: urlshortener/forms.py:25
 msgid "Il valore CaPTCHA è errato !"
 msgstr "The CaPTCHA value that you entered is invalid !"
 
-#: urlshortener/models.py:21
+#: urlshortener/models.py:39
 msgid "Shorten Url"
 msgstr "Url Abbreviato"
 
-#: urlshortener/models.py:22
+#: urlshortener/models.py:40
 msgid "Shorten Urls"
 msgstr "Url Abbreviati"
 
+#: urlshortener/models.py:51
+msgid ""
+"Cannot build redirect url, please set FQDN in settings.py or pass request "
+"object to get_redirect_rul()"
+msgstr ""
+
 #: urlshortener/templates/urlshortener.html:21
+#: urlshortener/templates/urlshortener.html:25
 msgid " è stato copiato nei tuoi appunti."
 msgstr " copied in your clipboard."
 
-#: urlshortener/templates/urlshortener.html:56
+#: urlshortener/templates/urlshortener.html:84
 msgid "Questo è il tuo URL abbreviato."
 msgstr "This is your shortened Url."
 
-#: urlshortener/templates/urlshortener.html:57
+#: urlshortener/templates/urlshortener.html:85
 msgid "Sarà reso disponibile per i prossimi "
 msgstr "It will be available for the next "
 
-#: urlshortener/templates/urlshortener.html:59
+#: urlshortener/templates/urlshortener.html:89
+#: urlshortener/templates/urlshortener.html:117
+msgid "infiniti "
+msgstr "endless"
+
+#: urlshortener/templates/urlshortener.html:91
 msgid " giorni a partire da adesso."
 msgstr " days from now."
 
-#: urlshortener/templates/urlshortener.html:67
-#, fuzzy
-#| msgid "Copia questo URL nei tuoi appunti"
+#: urlshortener/templates/urlshortener.html:100
 msgid "Copia questo URL"
 msgstr "Copy this Url"
 
-#: urlshortener/templates/urlshortener.html:73
-msgid "Questo servizio consente di conservare per un periodo massimo di "
+#: urlshortener/templates/urlshortener.html:105
+#: urlshortener/templates/urlshortener_redirect_landing.html:42
+msgid "Torna alla Home"
+msgstr "Back to Home"
+
+#: urlshortener/templates/urlshortener.html:113
+msgid "Questo servizio consente di conservare per "
 msgstr "This service store your shortened Urls for a maximum period of "
 
-#: urlshortener/templates/urlshortener.html:75
+#: urlshortener/templates/urlshortener.html:119
 msgid "giorni un url in formato \"ristretto\"."
 msgstr "days."
 
-#: urlshortener/templates/urlshortener.html:78
+#: urlshortener/templates/urlshortener.html:122
 msgid "Sarà più facile condividerlo con amici e colleghi."
 msgstr "It will be more simple to share it with your collegues and friends."
 
-#: urlshortener/templates/urlshortener.html:86
+#: urlshortener/templates/urlshortener.html:130
 msgid "Inserisci il valore rappresentato nella immagine CaPTCHA."
 msgstr "Please enter the value represented in the CaPTCHA image."
 
-#: urlshortener/templates/urlshortener.html:89
+#: urlshortener/templates/urlshortener.html:138
 msgid "Crea un URL semplificato"
 msgstr "Create a shortened Url"
 
-#: urlshortener/views.py:41
+#: urlshortener/templates/urlshortener_redirect_landing.html:23
+msgid ""
+"È un URL abbreviato, cliccando su \"Continua\" verrai reindirizzato sul "
+"seguente sito "
+msgstr "It's a shortened url, click on 'Continue' to be redirected to"
+
+#: urlshortener/templates/urlshortener_redirect_landing.html:37
+msgid "Continua"
+msgstr "Continue"
+
+#: urlshortener/views.py:31
 msgid "I valori da te inseriti non risultano validi."
 msgstr "The URL or the CaPTCHA you have inserted is not valid."
-
-#: urlshortener/views.py:70
-msgid "L'Url da te inserito risulta essere scaduto e non più disponibile."
-msgstr "The URL you have inserted is Expired."
