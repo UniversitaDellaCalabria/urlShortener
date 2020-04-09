@@ -14,6 +14,9 @@ from . models import UrlShortener, DELTA_DAYS
 from . serializers import UrlShortenerSerializer, clean_expired_urls
 
 
+_PROJECT_NAME = 'Url Shortener'
+
+
 def urlshortener(request):
     urlsh = None
     tinyurl = ''
@@ -42,7 +45,7 @@ def urlshortener(request):
             tinyurl = urlsh.get_redirect_url(request)
                 
     context = dict(
-        project_name='Url Shortener',
+        project_name=_PROJECT_NAME,
         form = form,
         delta_days = DELTA_DAYS,
         urlsh = urlsh,
@@ -57,6 +60,7 @@ def get_shorturl(request, shorturl):
     landing_page = getattr(settings, 'TINYURL_REDIRECT_LANDINGPAGE', True)
     if landing_page:
         context = dict(
+            project_name = _PROJECT_NAME,
             urlsh = urlsh,
             tinyurl = urlsh.get_redirect_url(request)
         )
