@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block menu_top %}
+{% endblock menu_top %}
+
+{% block logo %}
+{% endblock logo %}
+
+{% block logo_navbar %}
+{% endblock logo_navbar %}
+
+{% block page_body %}
+        <div class="jumbotron">
+          
+          <h3 class="display-10">
+              <input type="text" style="border:none; background: none;" class="w-100"
+              value="{{ tinyurl }}" id="shortened_url">
+          </h3>
+          <p class="">
+              {% trans 'Questo è un URL abbreviato generato da questo sito, cliccando su "Continua" verrai reindirizzato sul seguente sito ' %}
+          </p>
+
+          <p>
+            <a href="{{ urlsh.original_url }}" target='_tinyurl'>
+                {{ urlsh.original_url }}
+            </a>
+          </p>
+          
+          <hr class="my-4">
+
+          <div class="row justify-content-start">
+            <div class="col col-md-2 mt-2">
+              <button class="btn btn-primary px-4" onclick="window.location='{{ urlsh.original_url }}'">
+                {% trans "Continua" %}
+              </button>
+            </div>
+            <div class="col col-md-3 mt-2">
+              <button class="btn btn-secondary px-4" onclick="window.location='/'">
+                {% trans "Torna alla Home" %}
+              </button>
+            </div>
+          </div>
+          
+        </div>
+
+
+    {% block footer %}
+    {% endblock %}
+    
+{% endblock page_body %}

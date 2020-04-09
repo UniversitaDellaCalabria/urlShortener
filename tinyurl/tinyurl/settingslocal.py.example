@@ -61,6 +61,9 @@ ENCRYPTION_SALT = b'salt'
 # put it to 0 to disable deletion
 TINYURL_DURATION_DAYS = 0
 
+# If True a landing page will be presented before redirecting to the original url
+TINYURL_REDIRECT_LANDINGPAGE = True
+
 # change this to have a different webpath to admin backend
 ADMIN_PATH = 'gestione'
 

@@ -53,11 +53,16 @@ def urlshortener(request):
 
 
 def get_shorturl(request, shorturl):
-    ursh = get_object_or_404(UrlShortener, shorten_url=shorturl)
-    if ursh.is_expired():
-        messages.add_message(request, messages.ERROR,
-                                 _("L'Url da te inserito risulta essere scaduto e non più disponibile."))
-    return HttpResponseRedirect(ursh.original_url)
+    urlsh = get_object_or_404(UrlShortener, shorten_url=shorturl)
+    landing_page = getattr(settings, 'TINYURL_REDIRECT_LANDINGPAGE', True)
+    if landing_page:
+        context = dict(
+            urlsh = urlsh,
+            tinyurl = urlsh.get_redirect_url(request)
+        )
+        return render(request, 'urlshortener_redirect_landing.html', context)
+    else:
+        return HttpResponseRedirect(urlsh.original_url)
     
     
 # API
