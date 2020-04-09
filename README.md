@@ -145,5 +145,6 @@ Giuseppe De Marco <giuseppe.demarco@unical.it>
 Credits
 -------
 
-- GarrLab community
-- Francesco Izzi
+- GarrLab Community
+- Francesco Izzi (CNT)
+- Elis Bertazzon (GARR)
