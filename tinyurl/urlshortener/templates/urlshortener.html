@@ -83,7 +83,11 @@
           <p class="">
               {% trans 'Questo è il tuo URL abbreviato.' %}
               {% trans 'Sarà reso disponibile per i prossimi ' %}
-                <span style="font-width: 400;">{{ delta_days }}</span>
+                {% if delta_days %}
+                    {{ delta_days }}
+                {% else %}
+                    <b>{% trans 'infiniti ' %}</b>
+                {% endif %}              
               {% trans ' giorni a partire da adesso.' %}
           </p>
           <hr class="my-4">
