@@ -146,5 +146,5 @@ Credits
 -------
 
 - GarrLab Community
-- Francesco Izzi (CNT)
+- Francesco Izzi (CNR IMAA)
 - Elis Bertazzon (GARR)
