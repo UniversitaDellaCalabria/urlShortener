@@ -3,6 +3,21 @@
 {% load i18n %}
 {% load static %}
 
+{% block extra_head %}
+<script>
+    function BookmarkMe() {
+        // Mozilla Firefox Bookmark
+        if ('sidebar' in window && 'addPanel' in window.sidebar) { 
+            window.sidebar.addPanel(location.href,document.title,"");
+        } else if( /*@cc_on!@*/false) { // IE Favorite
+            window.external.AddFavorite(location.href,document.title); 
+        } else { // webkit - safari/chrome
+            alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
+        }
+    };
+</script>
+{% endblock extra_head %}
+
 {% block menu_top %}
 {% endblock menu_top %}
 
@@ -35,6 +50,11 @@
             <div class="col col-md-2 mt-2">
               <button class="btn btn-primary px-4" onclick="window.location='{{ urlsh.original_url }}'">
                 {% trans "Continua" %}
+              </button>
+            </div>
+            <div class="col col-md-3 mt-2">
+              <button class="btn btn-primary px-4"  rel="sidebar" onclick="javascript:BookmarkMe();">
+                {% trans "Aggiungi ai Preferiti" %}
               </button>
             </div>
             <div class="col col-md-3 mt-2">

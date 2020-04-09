@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-09 08:56+0000\n"
+"POT-Creation-Date: 2020-04-09 09:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,7 +104,7 @@ msgid "Copia questo URL"
 msgstr "Copia questo URL"
 
 #: urlshortener/templates/urlshortener.html:105
-#: urlshortener/templates/urlshortener_redirect_landing.html:42
+#: urlshortener/templates/urlshortener_redirect_landing.html:62
 msgid "Torna alla Home"
 msgstr "Torna alla Home"
 
@@ -128,16 +128,20 @@ msgstr "Inserisci il valore rappresentato nella immagine CaPTCHA."
 msgid "Crea un URL semplificato"
 msgstr "Crea un URL semplificato"
 
-#: urlshortener/templates/urlshortener_redirect_landing.html:23
+#: urlshortener/templates/urlshortener_redirect_landing.html:38
 msgid ""
 "È un URL abbreviato, cliccando su \"Continua\" verrai reindirizzato sul "
 "seguente sito "
 msgstr ""
 
-#: urlshortener/templates/urlshortener_redirect_landing.html:37
+#: urlshortener/templates/urlshortener_redirect_landing.html:52
 msgid "Continua"
 msgstr "Continua"
 
-#: urlshortener/views.py:31
+#: urlshortener/templates/urlshortener_redirect_landing.html:57
+msgid "Aggiungi ai Preferiti"
+msgstr "Aggiungi ai Preferiti"
+
+#: urlshortener/views.py:34
 msgid "I valori da te inseriti non risultano validi."
 msgstr "I valori da te inseriti non risultano validi."
