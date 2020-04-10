@@ -21,7 +21,10 @@ def urlshortener(request):
     urlsh = None
     tinyurl = ''
     captcha, captcha_img, captcha_hidden = get_captcha()
-    initial={'captcha_hidden': captcha_hidden}
+    url = dict(request.GET).get('url', '')
+    
+    initial={'captcha_hidden': captcha_hidden,
+             'url': url[0] if url else ''}
 
     if request.method == 'GET':
         form = UrlShortenerForm(initial=initial)
