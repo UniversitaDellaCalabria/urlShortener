@@ -137,6 +137,11 @@ Tinify this website url
 </button>
 ````
 
+To create a url shortener dynamic link, just copy this link to your bookmarks
+````
+<a href="javascript:void(location.href='https://url.garrlab.it/?url='+encodeURIComponent(location.href))">Tinyfy this URL</a>
+````
+
 
 Gallery
 -------
