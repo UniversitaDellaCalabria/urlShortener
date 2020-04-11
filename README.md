@@ -126,6 +126,18 @@ API TroubleShooting
 
 - "__Could not satisfy the request Accept header.__": remove `'Accept: applicaion/json; indent=4'` from request or see [Doc](https://www.django-rest-framework.org/api-guide/content-negotiation/)
 
+Shortcuts
+---------
+
+A third-party website can use this link to let users have a easy shortcut to tinyurl
+````
+<button class="btn btn-primary" 
+        onclick="javascript:void(location.href='https://url.garrlab.it/?url='+encodeURIComponent(location.href))">
+Tinify this website url
+</button>
+````
+
+
 Gallery
 -------
 
