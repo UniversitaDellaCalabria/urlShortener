@@ -31,18 +31,20 @@
         <div class="jumbotron">
           
           <h3 class="display-10">
-              <input type="text" style="border:none; background: none;" class="w-100"
+              <input type="text" style="border:none; background: none;" class="text-wrap w-100"
               value="{{ tinyurl }}" id="shortened_url">
           </h3>
           <p class="">
               {% trans 'È un URL abbreviato, cliccando su "Continua" verrai reindirizzato sul seguente sito ' %}
           </p>
 
-          <p>
-            <a href="{{ urlsh.original_url }}" target='_tinyurl'>
-                {{ urlsh.original_url }}
-            </a>
-          </p>
+          <div class="text-wrap">
+              <p>
+                <a href="{{ urlsh.original_url }}" target='_tinyurl'>
+                    {{ urlsh.original_url }}
+                </a>
+              </p>
+          </div>
           
           <hr class="my-4">
 
@@ -66,8 +68,11 @@
           
         </div>
 
+{% endblock page_body %}
 
     {% block footer %}
+    <p>
+        Bookmark the following <a class="font-weight-bold" href="javascript:void(location.href='https://url.garrlab.it/?url='+encodeURIComponent(location.href))">Tinify this URL link</a>. 
+        When you click the link in your favourites list, url.garrlab.it will provide a shortened link for the page you're on.
+    </p>
     {% endblock %}
-    
-{% endblock page_body %}
