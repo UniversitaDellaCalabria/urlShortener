@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-13 14:25+0000\n"
+"POT-Creation-Date: 2020-04-13 14:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -137,12 +137,12 @@ msgid "Tinify this URL"
 msgstr "Tinify this URL"
 
 #: urlshortener/templates/urlshortener.html:153
-msgid "When you click the link in your favourites list"
-msgstr "Quando cliccherai questo link nella tua lista dei preferiti"
-
-#: urlshortener/templates/urlshortener.html:155
-msgid "will provide a shortened link for the page you're on."
-msgstr "otterrai un URL semplificato da questo sito."
+msgid ""
+"When you click the link in your favourites list this site will provide a "
+"shortened link for the page you're on."
+msgstr ""
+"Quando cliccherai questo link nella tua lista dei preferiti "
+"otterrai un URL semplificato da questo sito."
 
 #: urlshortener/templates/urlshortener_redirect_landing.html:38
 msgid ""
