@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-09 09:23+0000\n"
+"POT-Creation-Date: 2020-04-13 14:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,29 +35,29 @@ msgstr "Info"
 msgid "ACCETTO"
 msgstr "ACCETTO"
 
-#: garrlab_template/templates/base.html:191
+#: garrlab_template/templates/base.html:190
 msgid "Questo sito NON utilizza cookie."
 msgstr "Questo sito NON utilizza cookie."
 
-#: garrlab_template/templates/base.html:192
+#: garrlab_template/templates/base.html:191
 msgid "OK"
 msgstr "OK"
 
-#: garrlab_template/templates/base.html:200
+#: garrlab_template/templates/base.html:199
 msgid "Non raccogliamo alcun dato sui nostri utenti."
 msgstr "Non raccogliamo alcun dato sui nostri utenti."
 
-#: garrlab_template/templates/base.html:204
+#: garrlab_template/templates/base.html:203
 msgid "Chiudi"
 msgstr "Chiudi"
 
 #: tinyurl/settingslocal.py:78
 msgid "Italian"
-msgstr ""
+msgstr "Italiano"
 
 #: tinyurl/settingslocal.py:79
 msgid "English"
-msgstr ""
+msgstr "Inglese"
 
 #: urlshortener/forms.py:25
 msgid "Il valore CaPTCHA è errato !"
@@ -104,7 +104,7 @@ msgid "Copia questo URL"
 msgstr "Copia questo URL"
 
 #: urlshortener/templates/urlshortener.html:105
-#: urlshortener/templates/urlshortener_redirect_landing.html:62
+#: urlshortener/templates/urlshortener_redirect_landing.html:64
 msgid "Torna alla Home"
 msgstr "Torna alla Home"
 
@@ -128,20 +128,38 @@ msgstr "Inserisci il valore rappresentato nella immagine CaPTCHA."
 msgid "Crea un URL semplificato"
 msgstr "Crea un URL semplificato"
 
+#: urlshortener/templates/urlshortener.html:149
+msgid "Bookmark the following"
+msgstr "Aggiungi ai preferiti il seguente"
+
+#: urlshortener/templates/urlshortener.html:151
+msgid "Tinify this URL"
+msgstr "Tinify this URL"
+
+#: urlshortener/templates/urlshortener.html:153
+msgid "When you click the link in your favourites list"
+msgstr "Quando cliccherai questo link nella tua lista dei preferiti"
+
+#: urlshortener/templates/urlshortener.html:155
+msgid "will provide a shortened link for the page you're on."
+msgstr "otterrai un URL semplificato da questo sito."
+
 #: urlshortener/templates/urlshortener_redirect_landing.html:38
 msgid ""
 "È un URL abbreviato, cliccando su \"Continua\" verrai reindirizzato sul "
 "seguente sito "
 msgstr ""
+"È un URL abbreviato, cliccando su \"Continua\" verrai reindirizzato sul "
+"seguente sito "
 
-#: urlshortener/templates/urlshortener_redirect_landing.html:52
+#: urlshortener/templates/urlshortener_redirect_landing.html:54
 msgid "Continua"
 msgstr "Continua"
 
-#: urlshortener/templates/urlshortener_redirect_landing.html:57
+#: urlshortener/templates/urlshortener_redirect_landing.html:59
 msgid "Aggiungi ai Preferiti"
 msgstr "Aggiungi ai Preferiti"
 
-#: urlshortener/views.py:34
+#: urlshortener/views.py:37
 msgid "I valori da te inseriti non risultano validi."
 msgstr "I valori da te inseriti non risultano validi."
