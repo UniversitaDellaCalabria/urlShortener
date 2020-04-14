@@ -18,8 +18,13 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 
+def test500(request):
+    raise Exception('Error 500 test')
+
+
 urlpatterns = [
     path('{}'.format(getattr(settings, 'ADMIN_PATH', 'admin')), admin.site.urls),
+    path('test500', test500, name='test500'),
 ]
 
 if 'urlshortener' in settings.INSTALLED_APPS:
