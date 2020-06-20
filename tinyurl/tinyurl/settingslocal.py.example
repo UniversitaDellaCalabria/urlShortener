@@ -49,8 +49,12 @@ if 'rest_framework' in INSTALLED_APPS:
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': os.environ.get('SQL_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.environ.get('SQL_DATABASE', 'db.sqlite3'),
+        'HOST': os.environ.get('SQL_HOST','localhost'),
+        'USER': os.environ.get('SQL_USER','root'),
+        'PASSWORD': os.environ.get('SQL_PASSWORD','mypass'),
+        'PORT': os.environ.get('SQL_PORT','3306'),
     }
 }
 

@@ -86,7 +86,7 @@ Then create the `.po` files, edit them and compile. Follows an example with Espa
 ./manage.py makemessages -l es
 ./manage.py compilemessages -l es
 
-```` 
+````
 
 API
 ---
@@ -131,7 +131,7 @@ Shortcuts
 
 A third-party website can use this link to let users have a easy shortcut to tinyurl
 ````
-<button class="btn btn-primary" 
+<button class="btn btn-primary"
         onclick="javascript:void(location.href='https://url.garrlab.it/?url='+encodeURIComponent(location.href))">
 Tinify this website url
 </button>
@@ -139,7 +139,7 @@ Tinify this website url
 
 To create a url shortener dynamic link copy this message in your html
 ````
-Bookmark the following <a href="javascript:void(location.href='https://url.garrlab.it/?url='+encodeURIComponent(location.href))">Tinify this URL</a>. 
+Bookmark the following <a href="javascript:void(location.href='https://url.garrlab.it/?url='+encodeURIComponent(location.href))">Tinify this URL</a>.
 When you click the link in your favourites list, url.garrlab.it will provide a shortened link for the page you're on.
 ````
 
@@ -147,13 +147,38 @@ When you click the link in your favourites list, url.garrlab.it will provide a s
 Gallery
 -------
 
-![Alt text](gallery/1.png)
+![Alt text](gallery/01.png)
 --------------
-![Alt text](gallery/22.png)
+![Alt text](gallery/02.png)
 --------------
-![Alt text](gallery/3.png)
+![Alt text](gallery/03.png)
 --------------
-![Alt text](gallery/4.png)
+![Alt text](gallery/04.png)
+
+Dockerimage
+-----------
+
+Edit the admin user/pass/mail in Dockerfile.
+Database connection paramenters can be configured as standard ENVironment variables, see `tinyurl/settingslocal.py.example`.
+
+````
+# please do not use standard distribution package
+# apt install docker docker.io docker-compose
+
+# use official docker repositories instead
+apt-get install docker-ce docker-ce-cli containerd.io
+
+cd urlshortener
+
+# build the containers and run them
+# sudo docker-compose up
+
+# build without composer
+docker image build --tag urlshortener:v1 .
+
+# Run on localhost:8000
+docker run -t -i -p 8000:8000 --name urlshortener urlshortener:v1
+````
 
 Author
 ------
