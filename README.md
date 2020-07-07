@@ -196,3 +196,8 @@ Credits
 - GarrLab Community
 - Francesco Izzi (CNR IMAA)
 - Elis Bertazzon (GARR)
+
+References
+----------
+
+- https://learndjango.com/tutorials/official-django-rest-framework-tutorial-beginners
