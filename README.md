@@ -91,6 +91,11 @@ Then create the `.po` files, edit them and compile. Follows an example with Espa
 API
 ---
 
+OpenAPI v3 Schema
+````
+python manage.py generateschema --format openapi > schema.yml
+````
+
 Basic Authentication
 ````
 curl -H 'Accept: application/json; indent=4' -u username:thatpassword http://127.0.0.1:8000/api/tinyurl/

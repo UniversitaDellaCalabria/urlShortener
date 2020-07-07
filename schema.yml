@@ -1,0 +1,142 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/tinyurl/:
+    get:
+      operationId: listUrlShorteners
+      description: API endpoint that allows users to view and create shortened urls.
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    original_url:
+                      type: string
+                      format: uri
+                      maxLength: 2048
+                      pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                        d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                        [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                        -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                        .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                        .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                    shorten_url:
+                      type: string
+                      nullable: true
+                      maxLength: 50
+                    created:
+                      type: string
+                      format: date-time
+                      readOnly: true
+                    url:
+                      type: string
+                      readOnly: true
+                  required:
+                  - original_url
+          description: ''
+    post:
+      operationId: createUrlShortener
+      description: API endpoint that allows users to view and create shortened urls.
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: &id001
+              properties:
+                original_url:
+                  type: string
+                  format: uri
+                  maxLength: 2048
+                  pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                    d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                    [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                    -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\.(?!-)(?:[a-z\xA1\
+                    -\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\.?|localhost))(?::\\\
+                    d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                shorten_url:
+                  type: string
+                  nullable: true
+                  maxLength: 50
+              required:
+              - original_url
+          application/x-www-form-urlencoded:
+            schema: *id001
+          multipart/form-data:
+            schema: *id001
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  original_url:
+                    type: string
+                    format: uri
+                    maxLength: 2048
+                    pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                      d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                      [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                      -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                      .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                      .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                  shorten_url:
+                    type: string
+                    nullable: true
+                    maxLength: 50
+                  created:
+                    type: string
+                    format: date-time
+                    readOnly: true
+                  url:
+                    type: string
+                    readOnly: true
+                required:
+                - original_url
+          description: ''
+  /api/tinyurl/{id}/:
+    get:
+      operationId: retrieveUrlShortener
+      description: API endpoint that allows users to view and create shortened urls.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Shorten Url.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  original_url:
+                    type: string
+                    format: uri
+                    maxLength: 2048
+                    pattern: "^(?:[a-z0-9\\.\\-\\+]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:25[0-5]|2[0-4]\\\
+                      d|[0-1]?\\d?\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}|\\\
+                      [[0-9a-f:\\.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                      -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                      .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                      .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\Z"
+                  shorten_url:
+                    type: string
+                    nullable: true
+                    maxLength: 50
+                  created:
+                    type: string
+                    format: date-time
+                    readOnly: true
+                  url:
+                    type: string
+                    readOnly: true
+                required:
+                - original_url
+          description: ''

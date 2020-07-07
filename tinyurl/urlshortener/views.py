@@ -22,7 +22,7 @@ def urlshortener(request):
     tinyurl = ''
     captcha, captcha_img, captcha_hidden = get_captcha()
     url = dict(request.GET).get('url', '')
-    
+
     initial={'captcha_hidden': captcha_hidden,
              'url': url[0] if url else ''}
 
@@ -46,7 +46,7 @@ def urlshortener(request):
                 urlsh = UrlShortener.objects.create(**entry)
                 urlsh.set_shorten_url()
             tinyurl = urlsh.get_redirect_url(request)
-                
+
     context = dict(
         project_name=_PROJECT_NAME,
         form = form,
@@ -70,13 +70,14 @@ def get_shorturl(request, shorturl):
         return render(request, 'urlshortener_redirect_landing.html', context)
     else:
         return HttpResponseRedirect(urlsh.original_url)
-    
-    
+
+
 # API
 class UrlShortenerViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint that allows users to view and create shortened urls.
     """
     queryset = UrlShortener.objects.all()
     serializer_class = UrlShortenerSerializer
     permission_classes = [permissions.IsAuthenticated]
+    http_method_names = ['get', 'post', 'head']
