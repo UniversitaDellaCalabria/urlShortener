@@ -4,8 +4,7 @@
 
 publiccodeYmlVersion: '0.2'
 categories:
-  - customer-service-and-support
-  - resource-management
+  - content-management
 dependsOn:
   open:
     - name: MariaDB
@@ -25,52 +24,47 @@ dependsOn:
       versionMin: ''
 description:
   it:
-    documentation: 'https://github.com/UniversitaDellaCalabria/django-delivery'
+    documentation: 'https://github.com/UniversitaDellaCalabria/urlShortener'
     features:
-      - Definition of one or more delivery campaigns;
-      - definition of goods to be delivered;
-      - definition of delivery points associated with the campaign;
-      - definition of stock of goods associated with delivery points;
-      - >-
-        possible definition of lists of identification codes of goods associated
-        with stocks;
-      - 'JQuery Datatables integrato, Ajax processing'
+      - 'Full int18n support, available language english, italian'
+      - CaPTCHA validation
+      - Rest-API with Basic and Token Authentication
     genericName: applicazione web
     longDescription: >
-      Manage delivery of goods in presence.  This application was created to
-      manage a valid list of users for  the delivery of an asset, such as sim
-      cards or a 4g routers.  This application can therefore manage a stock of
-      uniquely  identifiable products and at the same time serve for the
-      delivery  of anonymous goods, such as glasses of water or food  (goods
-      without any identificative value).
+      A tiny URL shortener service with a bit-shuffling approach to avoid
+      generating consecutive, predictable URLs. The algorithm is deterministic
+      and will guarantee that no collisions will occur.
 
-      Principali caratteristiche:
 
-      - Delivery operations are organized through the definition of Campaigns,
-      in a specific time interval;
+      - Full int18n support, available language english, italian
 
-      - Each campaign involves the activation of Delivery Points, whit users
-      with privileges to manage the flow, called operators;
+      - CaPTCHA validation
 
-      - Each campaign can eventually show an Agreement, the user is required to
-      accept when collecting the goods, before the delivery can be intended as
-      succesfully concluded;
+      - Rest-API with Basic and Token Authentication
 
-      - A stock of available products is defined for each delivery point, each
-      of which may or may not be identified by a code. Glass of water could not
-      have a identification code, SIM card should instead.
+      - Anonimous submissions
+
+      - Docker Image
+
+
+      This software was created within the GarrLab incubator, with the help and
+      suggestions of the GARR community and its components. Some special thanks
+      are present in the README file, in the Credits section.
     screenshots:
       - >-
-        https://raw.githubusercontent.com/UniversitaDellaCalabria/django-delivery/master/gallery/1.png
+        https://raw.githubusercontent.com/UniversitaDellaCalabria/urlShortener/master/gallery/unical-1.png
       - >-
-        https://raw.githubusercontent.com/UniversitaDellaCalabria/django-delivery/master/gallery/4.png
+        https://raw.githubusercontent.com/UniversitaDellaCalabria/urlShortener/master/gallery/unical-2.png
       - >-
-        https://raw.githubusercontent.com/UniversitaDellaCalabria/django-delivery/master/gallery/5.png
-    shortDescription: 'Manage the delivery of goods, such as a sim cards or a 4g routers.  '
+        https://raw.githubusercontent.com/UniversitaDellaCalabria/urlShortener/master/gallery/01.png
+      - >-
+        https://raw.githubusercontent.com/UniversitaDellaCalabria/urlShortener/master/gallery/02.png
+      - >-
+        https://raw.githubusercontent.com/UniversitaDellaCalabria/urlShortener/master/gallery/03.png
+      - >-
+        https://raw.githubusercontent.com/UniversitaDellaCalabria/urlShortener/master/gallery/04.png
+    shortDescription: A URL Shortener based on Django Framework
 developmentStatus: stable
-intendedAudience:
-  scope:
-    - employment
 it:
   conforme:
     gdpr: true
@@ -87,29 +81,31 @@ it:
     codiceIPA: unical
 legal:
   authorsFile: >-
-    https://raw.githubusercontent.com/UniversitaDellaCalabria/django-delivery/master/AUTHORS
+    https://raw.githubusercontent.com/UniversitaDellaCalabria/urlShortener/master/AUTHORS
   license: Apache-2.0
   mainCopyrightOwner: Università della Calabria
 localisation:
   availableLanguages:
     - it
+    - en
   localisationReady: true
 maintenance:
   contacts:
     - affiliation: unical.it
-      email: francesco.filicetti@unical.it
-      name: Francesco Filicetti
-    - email: giuseppe.demarco@unical.it
+      email: giuseppe.demarco@unical.it
       name: Giuseppe De Marco
+    - email: francesco.filicetti@unical.it
+      name: Francesco Filicetti
   type: internal
-name: django-delivery
+name: urlShortener
 platforms:
   - linux
   - web
 releaseDate: '2020-09-24'
-roadmap: 'https://github.com/UniversitaDellaCalabria/django-delivery/issues'
+roadmap: 'https://github.com/UniversitaDellaCalabria/urlShortener/issues'
 softwareType: standalone/web
 softwareVersion: v0.4.0
-url: 'https://github.com/UniversitaDellaCalabria/django-delivery'
+url: 'https://github.com/UniversitaDellaCalabria/urlShortener'
 usedBy:
   - 'https://www.unical.it'
+  - 'https://www.garrlab.it'
