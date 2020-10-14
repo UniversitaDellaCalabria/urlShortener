@@ -153,7 +153,7 @@ When you click the link in your favourites list, url.garrlab.it will provide a s
 Gallery
 -------
 
-![Alt text](gallery/unical-1.png)
+![Alt text](gallery/unical-11.png)
 --------------
 ![Alt text](gallery/unical-2.png)
 --------------
