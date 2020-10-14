@@ -1,13 +1,12 @@
-{% extends 'base.html' %}
+{% extends 'base-setup.html' %}
 
 {% load i18n %}
 {% load static %}
 
 {% block extra_head %}
+{{ block.super }}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script >
+<script>
     function copyToClipboard() {
       var copyText = document.getElementById("shortened_url");
     
@@ -52,8 +51,15 @@
 </style>
 {% endblock extra_head %}
 
-{% block menu_top %}
-{% endblock menu_top %}
+{% block header_slim_sub_menu %}
+{% endblock header_slim_sub_menu %}
+
+{% block header_center_search %}
+{% endblock header_center_search %}
+
+{% block main_menu %}
+    <hr>
+{% endblock main_menu %}
 
 {% block logo %}
 <!--
@@ -67,7 +73,11 @@
 -->
 {% endblock logo_navbar %}
 
-{% block page_body %}
+{% block centered_container %}
+    
+    <div class="" style="margin-left: 23px;">
+    <h3>{% trans 'UrlShortner' %}</h3>
+
     {% if messages %}
         {% for message in messages %}
         <div class="alert alert-danger" role="alert">
@@ -131,20 +141,23 @@
             {{ form.url }}
             <br>
             <div class="row justify-content-start">
-              <div class="col col-md-3 mt-2">
+              <div class="col col-md-4 mt-1">
                 {{ form_captcha }}
               </div>
             </div>
             
-            <div class="col col-md-3 mt-2">
+            <div class="col col-md-4 mt-4">
                 <button class="btn btn-primary px-4" style="padding: 6px;" type='submit'>{% trans 'Crea un URL semplificato' %}</button>
             </div>
 
         </form>
     {% endif %}
-        
-{% endblock page_body %}
+    
+    
+    </div>
+{% endblock centered_container %}
 
+    {% comment %}
     {% block footer %}
     <p>
         {% trans "Bookmark the following" %}
@@ -154,4 +167,4 @@
         {% trans "When you click the link in your favourites list this site will provide a shortened link for the page you're on." %}
     </p>
     {% endblock %}
-
+    {% endcomment %}

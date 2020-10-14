@@ -1,4 +1,4 @@
-TinyURL
+urlShortener
 -------
 
 A Django URL Shortener based on python [short_url](https://github.com/Alir3z4/python-short_url).
@@ -17,8 +17,8 @@ Setup
 -----
 
 ````
-git clone https://gitlab.garrlab.it/peppelinux/tinyurl.git
-cd tinyurl
+git clone https://github.com/UniversitaDellaCalabria/urlShortener.git
+cd urlShortener
 virtualenv -p python3 env
 source env/bin/activate
 pip install -r requirements.txt
@@ -35,6 +35,7 @@ cp tinyurl/settingslocal.py.example tinyurl/settingslocal.py
 
 ./manage migrate
 ./manage createsuperuser admin
+./manage compilescss
 ./manage collectstatic
 ````
 
@@ -152,6 +153,10 @@ When you click the link in your favourites list, url.garrlab.it will provide a s
 Gallery
 -------
 
+![Alt text](gallery/unical-1.png)
+--------------
+![Alt text](gallery/unical-2.png)
+--------------
 ![Alt text](gallery/01.png)
 --------------
 ![Alt text](gallery/02.png)

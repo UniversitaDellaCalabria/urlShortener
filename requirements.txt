@@ -8,3 +8,6 @@ markdown
 # openAPI schema v3
 uritemplate
 pyyaml
+
+# form
+django-form-builder==0.13

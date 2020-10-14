@@ -1,10 +1,12 @@
 import copy
 
+from collections import OrderedDict
 from django.conf import settings
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext as _
+from django_form_builder.forms import BaseDynamicForm
 from rest_framework import viewsets
 from rest_framework import permissions
 
@@ -16,23 +18,53 @@ from . serializers import UrlShortenerSerializer, clean_expired_urls
 
 _PROJECT_NAME = 'Url Shortener'
 
+TINYURL_TEMPLATE = getattr(settings, 'TINYURL_TEMPLATE', 'urlshortner.html')
+
+# this is the dictionary that builds the DynamicForm
+constructor_dict = OrderedDict([
+    # URLField
+    # ('URL',
+        # ('CustomURLField',
+            # {'label': 'url',
+             # 'required': True,
+             # 'help_text': _('The URL that would be shortened'),
+             # 'pre_text': '',
+             # 'attrs': {'class': 'form-control'}
+            # },
+            # '')
+    # ),
+    # Captcha
+    ('CaPTCHA',
+        ('CustomCaptchaComplexField',
+            {'label': 'CaPTCHA',
+             'pre_text': '',
+             # 'attrs': {'class': 'form-control'}
+            },
+            '')
+    ),
+])
 
 def urlshortener(request):
     urlsh = None
     tinyurl = ''
-    captcha, captcha_img, captcha_hidden = get_captcha()
+    # captcha, captcha_img, captcha_hidden = get_captcha()
     url = dict(request.GET).get('url', '')
 
-    initial={'captcha_hidden': captcha_hidden,
+    initial={
+             # 'captcha_hidden': captcha_hidden,
              'url': url[0] if url else ''}
 
     if request.method == 'GET':
         form = UrlShortenerForm(initial=initial)
+        form_captcha = BaseDynamicForm.get_form(constructor_dict=constructor_dict)
     elif request.method == 'POST':
         # clean oldies
         clean_expired_urls()
         form = UrlShortenerForm(data=request.POST)
-        if not form.is_valid():
+        form_captcha = BaseDynamicForm.get_form(constructor_dict=constructor_dict,
+                                                data=request.POST)
+        
+        if not all((form.is_valid(), form_captcha.is_valid())):
             messages.add_message(request, messages.ERROR,
                                  _('I valori da te inseriti non risultano validi.'))
             initial['url'] = form.data.get('url')
@@ -50,12 +82,13 @@ def urlshortener(request):
     context = dict(
         project_name=_PROJECT_NAME,
         form = form,
+        form_captcha = form_captcha,
         delta_days = DELTA_DAYS,
         urlsh = urlsh,
-        captcha_img = captcha_img,
+        # captcha_img = captcha_img,
         tinyurl = tinyurl
     )
-    return render(request, 'urlshortener.html', context)
+    return render(request, TINYURL_TEMPLATE, context)
 
 
 def get_shorturl(request, shorturl):

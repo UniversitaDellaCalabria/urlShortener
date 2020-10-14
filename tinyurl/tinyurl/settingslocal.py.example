@@ -31,6 +31,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_form_builder',
+    'sass_processor',
+    'bootstrap_italia_template',
+    'django_unical_bootstrap_italia',
+    
     'urlshortener',
     'garrlab_template',
     'rest_framework',
@@ -69,14 +74,21 @@ MIDDLEWARE = [
 ]
 
 # Change these in production use
-ENCRYPTION_SECRET = b'secret'
-ENCRYPTION_SALT = b'salt'
+CAPTCHA_SECRET = b'your_secret'
+CAPTCHA_SALT = b'your_salt'
+CAPTCHA_LENGTH = 6
+
+# ms
+CAPTCHA_EXPIRATION_TIME = 30000
 
 # put it to 0 to disable deletion
 TINYURL_DURATION_DAYS = 0
 
 # If True a landing page will be presented before redirecting to the original url
 TINYURL_REDIRECT_LANDINGPAGE = True
+
+TINYURL_TEMPLATE = 'urlshortener-bootstrap-italia.html'
+# TINYURL_TEMPLATE = 'urlshortner.html'
 
 # change this to have a different webpath to admin backend
 ADMIN_PATH = 'gestione'

@@ -1,0 +1,115 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+categories:
+  - customer-service-and-support
+  - resource-management
+dependsOn:
+  open:
+    - name: MariaDB
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: ''
+    - name: Python
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: ''
+    - name: Django
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: ''
+description:
+  it:
+    documentation: 'https://github.com/UniversitaDellaCalabria/django-delivery'
+    features:
+      - Definition of one or more delivery campaigns;
+      - definition of goods to be delivered;
+      - definition of delivery points associated with the campaign;
+      - definition of stock of goods associated with delivery points;
+      - >-
+        possible definition of lists of identification codes of goods associated
+        with stocks;
+      - 'JQuery Datatables integrato, Ajax processing'
+    genericName: applicazione web
+    longDescription: >
+      Manage delivery of goods in presence.  This application was created to
+      manage a valid list of users for  the delivery of an asset, such as sim
+      cards or a 4g routers.  This application can therefore manage a stock of
+      uniquely  identifiable products and at the same time serve for the
+      delivery  of anonymous goods, such as glasses of water or food  (goods
+      without any identificative value).
+
+      Principali caratteristiche:
+
+      - Delivery operations are organized through the definition of Campaigns,
+      in a specific time interval;
+
+      - Each campaign involves the activation of Delivery Points, whit users
+      with privileges to manage the flow, called operators;
+
+      - Each campaign can eventually show an Agreement, the user is required to
+      accept when collecting the goods, before the delivery can be intended as
+      succesfully concluded;
+
+      - A stock of available products is defined for each delivery point, each
+      of which may or may not be identified by a code. Glass of water could not
+      have a identification code, SIM card should instead.
+    screenshots:
+      - >-
+        https://raw.githubusercontent.com/UniversitaDellaCalabria/django-delivery/master/gallery/1.png
+      - >-
+        https://raw.githubusercontent.com/UniversitaDellaCalabria/django-delivery/master/gallery/4.png
+      - >-
+        https://raw.githubusercontent.com/UniversitaDellaCalabria/django-delivery/master/gallery/5.png
+    shortDescription: 'Manage the delivery of goods, such as a sim cards or a 4g routers.  '
+developmentStatus: stable
+intendedAudience:
+  scope:
+    - employment
+it:
+  conforme:
+    gdpr: true
+    lineeGuidaDesign: true
+    misureMinimeSicurezza: true
+    modelloInteroperabilita: false
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: false
+  riuso:
+    codiceIPA: unical
+legal:
+  authorsFile: >-
+    https://raw.githubusercontent.com/UniversitaDellaCalabria/django-delivery/master/AUTHORS
+  license: Apache-2.0
+  mainCopyrightOwner: Università della Calabria
+localisation:
+  availableLanguages:
+    - it
+  localisationReady: true
+maintenance:
+  contacts:
+    - affiliation: unical.it
+      email: francesco.filicetti@unical.it
+      name: Francesco Filicetti
+    - email: giuseppe.demarco@unical.it
+      name: Giuseppe De Marco
+  type: internal
+name: django-delivery
+platforms:
+  - linux
+  - web
+releaseDate: '2020-09-24'
+roadmap: 'https://github.com/UniversitaDellaCalabria/django-delivery/issues'
+softwareType: standalone/web
+softwareVersion: v0.4.0
+url: 'https://github.com/UniversitaDellaCalabria/django-delivery'
+usedBy:
+  - 'https://www.unical.it'

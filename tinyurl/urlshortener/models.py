@@ -46,7 +46,7 @@ class UrlShortener(models.Model):
     def get_redirect_url(self, request=None):
         abs_url = getattr(settings, 'FQDN', None)
         if not abs_url and request:
-            return request.build_absolute_uri()
+            return '{}/{}'.format(request.build_absolute_uri().rstrip('/'), self.shorten_url)
         if not abs_url:
             logger.error(_('Cannot build redirect url, '
                            'please set FQDN in settings.py or '
